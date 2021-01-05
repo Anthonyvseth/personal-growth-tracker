@@ -47,8 +47,23 @@ const createUser = async (req, res) => {
     }
 }
 
+const updateUser = async (req, res) => {
+    console.log(`HIT account UpdateOne:`, req.body)
+    try{
+        let user = parseInt(rq.params.id)
+        let updateUser = await User.update(req.body, {
+            where: {id: user},
+            returning: true
+        })
+        res.send(updateUser)
+    } catch (error) {
+        throw error
+    }
+}
+
 module.exports = {
     getAll,
     getOne,
-    createUser
+    createUser,
+    updateUser
 }
