@@ -1,5 +1,6 @@
+const { ValidationError } = require('sequelize')
 const { User } = require('../models')
-// const {ValidationError} = require('sequelize')
+
 
 const getAll = async (req, res) => {
     try {
@@ -28,7 +29,26 @@ const getOne = async (req, res) => {
     }
 }
 
+const createUser = async (req, res) => {
+    try {
+        let userBody = {
+            ...req.body
+        }
+        const newUser = User.build(userBody)
+        await newUser.validate()
+        await newUser.save()
+        
+        res.send(newUser)
+    } catch (error) {
+        if (error instanceof ValidationError) {
+            return console.error('Captured validation error:', error.errors[0].message)
+        }
+        throw error
+    }
+}
+
 module.exports = {
     getAll,
-    getOne
+    getOne,
+    createUser
 }
