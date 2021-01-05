@@ -7,6 +7,6 @@ Router.post('/', controller.createUser)
 Router.put('/:id', controller.updateUser)
 Router.delete('/:id', controller.deleteUser)
 Router.post('/login', controller.signIn)
-Router.post('/:account_id/affirmation', controller.createAffirmation)
+Router.post('/:user_id/affirmations', controller.createAffirmation)
 
 module.exports = Router

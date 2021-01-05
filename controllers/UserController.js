@@ -1,5 +1,5 @@
 const { ValidationError } = require('sequelize')
-const { User } = require('../models')
+const { User, Affirmation } = require('../models')
 
 
 const getAll = async (req, res) => {
@@ -103,11 +103,12 @@ const signIn = async (req, res) => {
 }
 
 const createAffirmation = async (req, res) => {
-    const userId = req.params.user_id
+    const userId = parseInt(req.params.user_id)
+    console.log(req.body)
     try {
        let affirmationBody = {
         userID: userId,
-        ...req.body
+        content: req.body.content
         }
         let affirmation = await Affirmation.create(affirmationBody)
         res.send(affirmation)

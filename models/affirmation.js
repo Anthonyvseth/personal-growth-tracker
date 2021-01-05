@@ -10,11 +10,23 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Affirmation.belongsTo(models.User, {
+        foreignKey: 'user_id',
+        onDelete: 'cascade',
+        onUpdate: 'cascade'
+      })
     }
   };
   Affirmation.init({
-    content: DataTypes.STRING
+    content: DataTypes.STRING,
+    userID: {
+      type: DataTypes.INTEGER,
+      field: 'user_id',
+      references: {
+        model: 'users',
+        key: 'id'
+      }
+    },
   }, {
     sequelize,
     modelName: 'Affirmation',
