@@ -61,9 +61,27 @@ const updateUser = async (req, res) => {
     }
 }
 
+const deleteUser = async (req, res) => {
+    try { 
+        let userId = parseInt(req.params.id)
+        await User.destroy({
+            where: {id: userId}
+        })
+        res.send({
+            message: `Deleted account with id of: ${userId}`,
+            options: {
+                deleted: true,
+                recordId: userId
+            }
+        })
+    } catch (error) {
+        throw error
+    }
+}
 module.exports = {
     getAll,
     getOne,
     createUser,
-    updateUser
+    updateUser,
+    deleteUser
 }
