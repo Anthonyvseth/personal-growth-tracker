@@ -78,10 +78,35 @@ const deleteUser = async (req, res) => {
         throw error
     }
 }
+
+const signIn = async (req, res) => {
+    const userEmail = req.body.userEmail
+    const userPassword = req.body.password
+    try {
+        const user = await User.findOne({
+            where: {
+                email: userEmail,
+                password: userPassword
+            },
+            include: [
+                {
+                    all: true,
+                    nested: true
+                }
+            ]
+        })
+        console.log("SIGN IN", User)
+        res.send(User)
+    } catch (error) {
+        throw error
+    }
+}
+
 module.exports = {
     getAll,
     getOne,
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    signIn
 }
