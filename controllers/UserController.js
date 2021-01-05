@@ -102,11 +102,27 @@ const signIn = async (req, res) => {
     }
 }
 
+const createAffirmation = async (req, res) => {
+    const userId = req.params.user_id
+    try {
+       let affirmationBody = {
+        userID: userId,
+        ...req.body
+        }
+        let affirmation = await Affirmation.create(affirmationBody)
+        res.send(affirmation)
+    } catch (error) {
+        throw error
+    }
+}
+
+
 module.exports = {
     getAll,
     getOne,
     createUser,
     updateUser,
     deleteUser,
-    signIn
+    signIn,
+    createAffirmation
 }
