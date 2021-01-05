@@ -54,6 +54,7 @@ const SignUp = (props) => {
                         placeholder = 'Enter your password'
                         />
                 </div>
+                <button>Sign Up</button>
         </div>
     )
 }

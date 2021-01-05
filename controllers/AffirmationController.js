@@ -10,6 +10,20 @@ const getAffirmation = async (req, res) => {
     }
 }
 
+const updateAffirmation = async (req, res) => {
+    try {
+        let affirm = parseInt(req.params.id)
+        let updateAffirm = await Affirmation.update(req.body, {
+            where: {id: affirm},
+            returning: true
+        })
+        res.send(updateAffirm)
+    } catch (error) {
+        throw error
+    }
+}
+
 module.exports = {
-    getAffirmation
+    getAffirmation,
+    updateAffirmation
 }
