@@ -10,6 +10,25 @@ const getAll = async (req, res) => {
     }
 }
 
+const getOne = async (req, res) => {
+    const userId = req.params.id
+    try {
+        const oneUser = await User.findByPk(userId, {
+            include: [
+                {
+                    all: true,
+                    nested: true
+                }
+            ]
+        })
+        console.log("getting one user", oneUser)
+        res.send(oneUser)
+    } catch (error) {
+        throw error
+    }
+}
+
 module.exports = {
-    getAll
+    getAll,
+    getOne
 }
