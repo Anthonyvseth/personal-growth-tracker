@@ -33,7 +33,7 @@ const deleteAffirmation = async (req, res) => {
         message: `Deleted todo with id of ${affirmationId}`,
         options: {
           deleted: true,
-          recordId: entityId
+          recordId: affirmationId
         }
       })
   

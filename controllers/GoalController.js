@@ -23,7 +23,27 @@ const updateGoal = async (req, res) => {
     }
 }
 
+const deleteGoal = async (req, res) => {
+    try {
+      let goalId = parseInt(req.params.id)
+      await Goal.destroy({
+        where: { id: goalId }
+      })
+      res.send({
+        message: `Deleted todo with id of ${goalId}`,
+        options: {
+          deleted: true,
+          recordId: goalId
+        }
+      })
+  
+    } catch (error) {
+      throw error
+    }
+  }
+
 module.exports = {
     getGoal,
-    updateGoal
+    updateGoal,
+    deleteGoal
 }
