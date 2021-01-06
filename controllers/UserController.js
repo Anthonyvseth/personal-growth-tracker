@@ -1,5 +1,5 @@
 const { ValidationError } = require('sequelize')
-const { User, Affirmation } = require('../models')
+const { User, Affirmation, Goal } = require('../models')
 
 
 const getAll = async (req, res) => {
@@ -117,6 +117,23 @@ const createAffirmation = async (req, res) => {
     }
 }
 
+const createGoal = async (req, res) => {
+    const userId = parseInt(req.params.user_id)
+    console.log(req.body)
+    try {
+       let goalBody = {
+        userID: userId,
+        title: req.body.title,
+        description: req.body.description,
+        rating: req.body.rating
+        }
+        let goal = await Goal.create(goalBody)
+        res.send(goal)
+    } catch (error) {
+        throw error
+    }
+}
+
 
 module.exports = {
     getAll,
@@ -125,5 +142,6 @@ module.exports = {
     updateUser,
     deleteUser,
     signIn,
-    createAffirmation
+    createAffirmation,
+    createGoal
 }

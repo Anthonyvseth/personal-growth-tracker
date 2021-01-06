@@ -1,13 +1,13 @@
-const { Affirmation } = require('../models')
+const { Affirmation } = require('../models/affirmation')
 
 const getAffirmation = async (req, res) => {
-  const entityId = req.params.id
-  try {
-    const entity = await Affirmation.findByPk(entityId)
-    res.send(entity)
-  } catch (error) {
-    throw error
-  }
+    const affirmId = req.params.id
+    try {
+        const affirmation = await Affirmation.findbyPk(affirmId)
+        res.send(affirmation)
+    } catch (error) {
+        throw error
+    }
 }
 
 const updateAffirmation = async (req, res) => {
@@ -33,7 +33,7 @@ const deleteAffirmation = async (req, res) => {
         message: `Deleted todo with id of ${affirmationId}`,
         options: {
           deleted: true,
-          recordId: affirmationId
+          recordId: entityId
         }
       })
   

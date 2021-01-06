@@ -17,6 +17,14 @@ module.exports = {
       rating: {
         type: Sequelize.INTEGER
       },
+      userID: {
+        type: Sequelize.INTEGER,
+        field: 'user_id',
+        references: {
+          model: 'users',
+          key: 'id'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

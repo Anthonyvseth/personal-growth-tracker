@@ -11,9 +11,15 @@ module.exports = (sequelize, DataTypes) => {
         as: 'affirmations',
         onDelete: 'cascade',
         onUpdate: 'cascade'
-    })
-    }
-  };
+    }),
+        User.hasMany(models.Goal, {
+          foreignKey: 'user_id',
+          as: 'goal',
+          onDelete: 'cascade',
+          onUpdate: 'cascade'
+      })
+  }
+}
   User.init({
     userName: DataTypes.STRING,
     firstName: DataTypes.STRING,
