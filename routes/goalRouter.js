@@ -3,6 +3,6 @@ const controller = require('../controllers/GoalController')
 
 Router.get("/:id", controller.getGoal)
 Router.post('/:id', controller.updateGoal)
-Router.delete('/user', controller.deleteGoal)
+Router.delete('/:id', controller.deleteGoal)
 
 module.exports = Router
