@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
+import TextInput from '../components/TextInput'
 import {__RegisterUser} from '../services/UserServices'
 
 const SignUp = (props) => {
-    const [username, setUsername] = useState('')
+    const [userName, setUserName] = useState('')
     const [firstName, setFirstName] = useState('');
     const [lastName, setlastName] = useState('');
     const [email, setEmail] = useState('');
@@ -10,11 +11,11 @@ const SignUp = (props) => {
     const [formError, setFormError] = useState('')
 
     const formChange = (e) => {
-        const fieldName = e.target.value
+        const fieldName = e.target.name
         const fieldValue = e.target.value
         switch (fieldName) {
             case 'userName':
-                setUsername(fieldValue)
+                setUserName(fieldValue)
                 break
             case 'firstName':
                 setFirstName(fieldValue)
@@ -35,15 +36,15 @@ const SignUp = (props) => {
         event.preventDefault()
 
     const formState = {
-        username: username,
+        userName: userName,
         firstName: firstName,
         lastName: lastName,
         email: email,
         password: password
     }
     try {
-        const accountResponse = await __RegisterUser(formState);
-        props.setAccount(accountResponse)
+        const userResponse = await __RegisterUser(formState);
+        props.setUser(userResponse)
         props.history.push('/home');
       } catch (error) {
         setFormError(true);
@@ -52,37 +53,37 @@ const SignUp = (props) => {
     return (
         <div>
             <h1>Get started today!</h1>
-                <form onClick={(e) => handleSubmit(e)}>
+                <form onSubmit={(e) => handleSubmit(e)}>
                     <div>
                         <label>Username</label>
-                            <input 
+                            <TextInput 
                             type = 'text'
-                            name = 'username'
+                            name = 'userName'
                             placeholder = 'Enter your username'
                             onChange={formChange}
                             />
                     </div>
                     <div>
                         <label>First Name</label>
-                            <input 
+                            <TextInput  
                             type = 'text'
-                            name = 'first name'
+                            name = 'firstName'
                             placeholder = 'Enter your fisrt name'
                             onChange={formChange}
                             />
                     </div>
                     <div>
                         <label>Last Name</label>
-                            <input 
+                            <TextInput 
                             type = 'text'
-                            name = 'last name'
+                            name = 'lastName'
                             placeholder = 'Enter your last name'
                             onChange={formChange}
                             />
                     </div>
                     <div>
                         <label>Email</label>
-                            <input 
+                            <TextInput 
                             type = 'text'
                             name = 'email'
                             placeholder = 'Enter your email'
@@ -91,7 +92,7 @@ const SignUp = (props) => {
                     </div>
                     <div>
                         <label>Password</label>
-                            <input 
+                            <TextInput  
                             type = 'text'
                             name = 'password'
                             placeholder = 'Enter your password'

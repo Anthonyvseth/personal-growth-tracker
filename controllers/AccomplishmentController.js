@@ -1,6 +1,6 @@
 const { Accomplishment } = require('../models')
 
-const getAccomplishment = (req, res) => {
+const getAccomplishment = async (req, res) => {
     const accomId = req.params.id
     try {
         const accomplishment = await Accomplishment.findbyPk(accomId)
