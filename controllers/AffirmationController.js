@@ -1,4 +1,4 @@
-const { Affirmation } = require('../models/affirmation')
+const { Affirmation } = require('../models')
 
 const getAffirmation = async (req, res) => {
     const affirmId = req.params.id
