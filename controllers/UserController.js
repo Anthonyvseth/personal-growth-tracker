@@ -96,7 +96,7 @@ const signIn = async (req, res) => {
             ]
         })
         console.log("SIGN IN", User)
-        res.send(User)
+        res.send(user)
     } catch (error) {
         throw error
     }
