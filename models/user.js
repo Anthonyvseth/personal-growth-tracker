@@ -11,13 +11,19 @@ module.exports = (sequelize, DataTypes) => {
         as: 'affirmations',
         onDelete: 'cascade',
         onUpdate: 'cascade'
-    }),
+      }),
         User.hasMany(models.Goal, {
           foreignKey: 'user_id',
           as: 'goal',
           onDelete: 'cascade',
           onUpdate: 'cascade'
-      })
+        }),
+          User.hasMany(models.Accomplishment, {
+          foreignKey: 'user_id',
+          as: 'accomplishment',
+          onDelete: 'cascade',
+          onUpdate: 'cascade'
+          })
   }
 }
   User.init({
