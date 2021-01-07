@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import TextInput from '../components/TextInput'
+import TextInput from './TextInput'
 import {__RegisterUser} from '../services/UserServices'
 
 const SignUp = (props) => {
@@ -45,7 +45,7 @@ const SignUp = (props) => {
     try {
         const userResponse = await __RegisterUser(formState);
         props.setUser(userResponse)
-        props.history.push('/home');
+        props.history.push('/profile');
       } catch (error) {
         setFormError(true);
       }

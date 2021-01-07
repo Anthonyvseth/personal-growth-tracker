@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import {Switch, Route} from 'react-router-dom'
-import SignUp from '../pages/SignUpPage'
+import SignUp from './SignUp'
+import SignIn from './SignIn'
 import HomePage from '../pages/HomePage'
+import ProfilePage from '../pages/ProfilePage'
 import { __getUser } from '../services/UserServices'
 
 const Router = () => {
@@ -34,15 +36,17 @@ const Router = () => {
     return (
         <main>
             <Switch>
-                <Route exact path='/' 
+                <Route exact path='/' component={(props) => <HomePage />} />
+                <Route path='signin' component={(props) => <SignIn {...props} setAccount={setUser}/>} />
+                <Route path='/signup' component={(props) => <SignUp {...props} setUser={setUser}/>}/>
+                <Route path='/profile' 
                         component={(props) => 
-                    <HomePage 
+                    <ProfilePage 
                         {...props}
                         user={user} 
                         onClickSignOut={clearUser}
                         setNeedsRefresh={setNeedsRefresh}
                         />} />
-                <Route path='/signup' component={(props) => <SignUp {...props} setUser={setUser}/>}/>
             </Switch>
         </main>
     )

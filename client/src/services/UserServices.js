@@ -23,3 +23,17 @@ export const __getUser = async (user_id) => {
         throw error
     }
 }
+
+export const __SigninUser = async (userData) => {
+    try {
+        const res = await ApiClient.post('/users/signin', userData)
+        setLocalUserId(res.data.id)
+        return res.data
+    } catch (error) {
+        throw error
+    }
+}
+
+export const _LogOutUser = () => {
+    localStorage.clear('user_id');
+  };
