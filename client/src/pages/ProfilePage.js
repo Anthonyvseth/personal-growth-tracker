@@ -1,5 +1,5 @@
 import React from 'react'
-import Affirmations from '../components/Affirmation/Affirmations'
+import Affirmations from '../components/affirmation/Affirmations'
 import SignOut from '../components/SignOut'
 
 const ProfilePage = (props) => {

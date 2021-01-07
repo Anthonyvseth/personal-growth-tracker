@@ -1,10 +1,9 @@
 import React from 'react'
 import Affirmation from './Affirmation'
 
-
 const AffirmationList = (props) => {
-    const { setNeedsRefresh } = props
     const { affirmations } = props.user
+    // const [affirm, setAffirm] = useState([])
     
     if ( affirmations !== null && affirmations !== undefined && affirmations.length > 0) {
     return (
@@ -14,7 +13,6 @@ const AffirmationList = (props) => {
                     <Affirmation
                         affirmation={affirmation}
                         key={index}
-                        setNeedsRefresh={setNeedsRefresh} 
                     />
                 )
             })

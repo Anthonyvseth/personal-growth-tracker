@@ -3,7 +3,6 @@ import { __CreateAffirm } from '../../services/AffirmationServices'
 import TextInput from '../TextInput'
 
 const AffirmationForm = (props) => {
-    const {setNeedsRefresh} = props
     const [content, setContent] = useState('')
     const [formError, setFormError] = useState('')
     
@@ -23,7 +22,6 @@ const AffirmationForm = (props) => {
         }
         try {
             const addAffirm = await __CreateAffirm(formState)
-            setNeedsRefresh(true)
             props.history.push("/profile")
         } catch (error) {
             setFormError(true)

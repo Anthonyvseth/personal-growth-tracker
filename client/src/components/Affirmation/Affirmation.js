@@ -1,15 +1,27 @@
-import React from 'react'
-import { __DeleteAffirm} from '../../services/AffirmationServices'
+import React, {useState} from 'react'
+import { __DeleteAffirm, __UpdateAffirm} from '../../services/AffirmationServices'
 
 const Affirmation = (props) => {
-    console.log(props)
-    const {affirmation, setNeedsRefresh} = props
+    const {affirmation} = props
     console.log("Affirmation props: ", props)
+    const [affirm, setAffirm] = useState(null)
+
 
     const deleteAffirm = async (e) => {
         console.log("DELETE affirm", affirmation)
         try {
             await __DeleteAffirm(affirmation.id)
+        } catch (error) {
+            console.log (error)
+        }
+    }
+
+    const updateAffirm = async (e) => {
+        console.log("UPDATE affirm", affirmation)
+        try {
+            const sentAffirm = {affirmation: affirm}
+            const updateAffirm = await __UpdateAffirm(sentAffirm)
+            setAffirm(updateAffirm)
         } catch (error) {
             console.log (error)
         }
@@ -22,6 +34,10 @@ const Affirmation = (props) => {
                 <button
                 onClick={(e) => deleteAffirm(e)}>
                     Delete
+                </button>
+                <button
+                onClick={(e) => updateAffirm(e)}>
+                    update
                 </button>
             </div>
         )

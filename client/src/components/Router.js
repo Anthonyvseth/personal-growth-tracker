@@ -9,7 +9,6 @@ import { __getUser } from '../services/UserServices'
 
 const Router = () => {
     const [user, setUser] = useState(null)
-    const [needsRefresh, setNeedsRefresh] = useState(false)
 
     const localUserId = localStorage.getItem('user_id')
 
@@ -23,8 +22,7 @@ const Router = () => {
         }
     }
 
-    if((user === null && localUserId !== null) || needsRefresh) {
-        setNeedsRefresh(false)
+    if((user === null && localUserId !== null)) {
         const gotUser = gettingUser(localUserId)
         setUser(gotUser)
     }
@@ -48,7 +46,7 @@ const Router = () => {
                         {...props}
                         user={user} 
                         onClickSignOut={clearUser}
-                        setNeedsRefresh={setNeedsRefresh}
+                    
                         />} />
             </Switch>
         </main>
