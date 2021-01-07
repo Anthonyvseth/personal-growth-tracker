@@ -10,7 +10,6 @@ const Affirmation = (props) => {
         console.log("DELETE affirm", affirmation)
         try {
             await __DeleteAffirm(affirmation.id)
-            setNeedsRefresh(true)
         } catch (error) {
             console.log (error)
         }
@@ -19,7 +18,7 @@ const Affirmation = (props) => {
     if (affirmation !== null && affirmation !== undefined) {
         return (
             <div>
-                <h2>affirmations</h2>
+                {affirmation.content}
                 <button
                 onClick={(e) => deleteAffirm(e)}>
                     Delete

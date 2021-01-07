@@ -3,7 +3,6 @@ import Affirmation from './Affirmation'
 
 
 const AffirmationList = (props) => {
-    console.log(props)
     const { setNeedsRefresh } = props
     const { affirmations } = props.user
     

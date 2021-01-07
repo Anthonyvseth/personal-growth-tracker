@@ -3,7 +3,8 @@ import ApiClient from './ApiClient'
 export const __CreateAffirm = async (formData) => {
     const userId = localStorage.getItem('user_id')
     try {
-        const res = await ApiClient.post(`/users/${userId}`)
+        console.log('__CreateTodo todo formData',formData)
+        const res = await ApiClient.post(`/users/${userId}/affirmations`, formData)
         return res.data
     } catch (error) {
         throw error

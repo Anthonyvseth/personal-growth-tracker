@@ -14,7 +14,6 @@ const Router = () => {
     const localUserId = localStorage.getItem('user_id')
 
     const gettingUser = async (user_id) => {
-        console.log(user_id)
         try {
             const person = await __getUser(parseInt(localUserId))
             setUser(person)

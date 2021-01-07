@@ -1,25 +1,25 @@
 import React, {useState} from 'react'
-import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const SignOut = () => {
-    const [signedOut, setSignOut] = useState(false)
+    const [signedOut, setSignedOut] = useState(false)
 
     const clearUser = () => {
         localStorage.clear("user_id")
-        setSignOut(true)
+        setSignedOut(true)
     }
 
     if (signedOut) {
-        <Redirect to='/'/> 
+        <Link to='/' push={true}/> 
     } else {
         return (
-            <button onClick={(e) => clearUser()}>
+            <button 
+            onClick={(e) => clearUser()}
+            >
                 Signout
             </button>
         )
     }
-    
-
 }
 
 export default SignOut

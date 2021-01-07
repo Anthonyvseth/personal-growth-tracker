@@ -59,7 +59,7 @@ const SignIn = (props) => {
                         />
                     </label>
                 </div>
-                <button>Login</button>
+                <button to='/profile'>Login</button>
             </form>
         </div>
     )
