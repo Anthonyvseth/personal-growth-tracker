@@ -79,8 +79,8 @@ const deleteUser = async (req, res) => {
     }
 }
 
-const signIn = async (req, res) => {
-    const userEmail = req.body.userEmail
+const signIn = async (req, res, next) => {
+    const userEmail = req.body.email
     const userPassword = req.body.password
     try {
         const user = await User.findOne({
@@ -95,10 +95,11 @@ const signIn = async (req, res) => {
                 }
             ]
         })
-        console.log("SIGN IN", User)
+        console.log("SIGN IN", user)
         res.send(user)
     } catch (error) {
-        throw error
+        console.log(error)
+        return false
     }
 }
 

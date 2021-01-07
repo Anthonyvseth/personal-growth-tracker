@@ -3,6 +3,7 @@ import TextInput from '../components/TextInput'
 import {__SigninUser} from '../services/UserServices'
 
 const SignIn = (props) => {
+    console.log("sign in props: ", props)
     const {setUser} = props
     const [loginValue, setLoginValue] = useState('')
     const [passwordValue, setPasswordValue] = useState('')
@@ -33,6 +34,7 @@ const SignIn = (props) => {
             setFormError(true);
         }
     };
+
     return (
         <div>
             <form onSubmit={(e) => handleSubmit(e)}>
@@ -48,7 +50,7 @@ const SignIn = (props) => {
                     </label>
                 </div>
                 <div>
-                    <label> Email
+                    <label> Password
                         <TextInput
                             name="password"
                             type='password'

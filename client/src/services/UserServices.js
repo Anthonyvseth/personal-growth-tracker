@@ -28,6 +28,7 @@ export const __SigninUser = async (userData) => {
     try {
         const res = await ApiClient.post('/users/signin', userData)
         setLocalUserId(res.data.id)
+        console.log('Logged in');
         return res.data
     } catch (error) {
         throw error

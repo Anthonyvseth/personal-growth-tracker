@@ -1,10 +1,8 @@
 import React, {useState} from 'react'
-import { use } from '../../../../routes/UserRoute'
 import { __CreateAffirm } from '../../services/AffirmationServices'
 import TextInput from '../TextInput'
 
 const AffirmationForm = (props) => {
-    const{setnNeedsRefresh} = props
     const [content, setContent] = useState('')
     const [formError, setFormError] = useState('')
     
@@ -24,7 +22,6 @@ const AffirmationForm = (props) => {
         }
         try {
             const addAffirm = await __CreateAffirm(formState)
-            setnNeedsRefresh(true)
             props.history.push("/profile")
         } catch (error) {
             setFormError(true)

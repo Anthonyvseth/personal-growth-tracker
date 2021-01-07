@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Switch, Route} from 'react-router-dom'
+import ProtectedRoute from './ProtectedRoute'
 import SignUp from './SignUp'
 import SignIn from './SignIn'
 import HomePage from '../pages/HomePage'
@@ -13,6 +14,7 @@ const Router = () => {
     const localUserId = localStorage.getItem('user_id')
 
     const gettingUser = async (user_id) => {
+        console.log(user_id)
         try {
             const person = await __getUser(parseInt(localUserId))
             setUser(person)
@@ -36,11 +38,13 @@ const Router = () => {
     return (
         <main>
             <Switch>
-                <Route exact path='/' component={(props) => <HomePage />} />
+                <Route exact path='/' component={() => <HomePage />} />
                 <Route path='signin' component={(props) => <SignIn {...props} setAccount={setUser}/>} />
                 <Route path='/signup' component={(props) => <SignUp {...props} setUser={setUser}/>}/>
-                <Route path='/profile' 
-                        component={(props) => 
+                <ProtectedRoute 
+                    authenticated={user !== null}
+                    path='/profile' 
+                    component={(props) => 
                     <ProfilePage 
                         {...props}
                         user={user} 

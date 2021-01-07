@@ -1,7 +1,5 @@
 import ApiClient from './ApiClient'
 
-import React from 'react'
-
 export const __CreateAffirm = async (formData) => {
     const userId = localStorage.getItem('user_id')
     try {
@@ -17,6 +15,24 @@ export const __GetAffirms = async () => {
     try {
         const res = await ApiClient.get(`/users/${userId}/affirmaions`)
         return res.data.affirmations
+    } catch (error) {
+        throw error
+    }
+}
+
+export const __UpdateAffirm = async (id, formData) => {
+    try {
+        const res = await ApiClient.put(`/affirmations/${id}`, formData)
+        return res.data
+    } catch (error) {
+        throw error
+    }
+}
+
+export const __DeleteAffirm = async (id) => {
+    try {
+        const res = await ApiClient.delete(`/affirmations/${id}`)
+        return res.data
     } catch (error) {
         throw error
     }
