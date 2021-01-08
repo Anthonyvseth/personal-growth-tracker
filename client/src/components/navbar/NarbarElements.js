@@ -8,7 +8,7 @@ export const Nav = styled.nav`
     ${'' /* margin-top: -80px; */}
     display: flex;
     justify-content: center;
-    alighn-items: center;
+    align-items: center;
     font-size: 1rem;
     position: sticky;
     top: 0;
@@ -28,12 +28,12 @@ export const NavBarContainer = styled.div`
     max-width: 1100px;
 `
 export const NavLogo = styled(LinkR)`
-    color: #fff;
+    color: #01bf71;
     justify-self: flex-start;
     cursor: pointer;
     font-size: 1.5rem;
     display: flex;
-    alighn-items: center;
+    align-items: center;
     margin-left: 24px;
     font-weight: bold;
     text-decoration: none;
@@ -49,15 +49,15 @@ export const MobileIcon = styled.div`
         transform: translate(-100%, 60%);
         font-size: 1.8rem;
         cursor: pointer;
-        color: #fff;
+        color: #ffff;
     }
 `
 export const NavMenu = styled.ul`
-    dispay: flex;
+    display: flex;
     align-items: center;
     list-style: none;
     text-align: center;
-    margin-right: -22px;
+    margin-right:-22px;
 
     @media screen and (max-width: 768px) {
         display: none;
@@ -69,9 +69,9 @@ export const NavItem = styled.li`
 `
 
 export const NavLinks = styled(LinkS)`
-    color: #fff;
+    color: #ffff;
     display: flex;
-    align-item: center;
+    align-items: center;
     text-decoration: none;
     padding: 0 1rem;
     height: 100%;
@@ -79,5 +79,34 @@ export const NavLinks = styled(LinkS)`
 
     &.active {
         border-bottom: 3px solid #01bf71;
+    }
+`
+
+export const NavBtn = styled.nav`
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+`
+
+export const NavBtnLink = styled(LinkR)`
+    border-radius: 50px;
+    background: #01bf71;
+    white-space: nowrap;
+    padding: 10px 22px;
+    margin-left 22px;
+    color: #010606;
+    font-size: 16px;
+    outline: none;
+    border: none:
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        transition: all 0.2 ease-in-out;
+        background: #fff;
+        color: #01bf71;
     }
 `

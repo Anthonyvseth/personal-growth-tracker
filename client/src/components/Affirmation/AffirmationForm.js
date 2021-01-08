@@ -1,11 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import { __CreateAffirm } from '../../services/AffirmationServices'
 import TextInput from '../TextInput'
 
 const AffirmationForm = (props) => {
-    const [content, setContent] = useState('')
+    const [content, setContent] = useState(props.edit ? props.edit.value : '')
     const [formError, setFormError] = useState('')
-    
+
     const handleChange = (e) => {
         const fieldName = e.target.name
         const fieldValue = e.target.value
@@ -23,19 +23,36 @@ const AffirmationForm = (props) => {
         try {
             const addAffirm = await __CreateAffirm(formState)
             props.history.push("/profile")
+            setContent('')
         } catch (error) {
             setFormError(true)
         }
     }
 
+    
     return (
         <form onSubmit={(e) => handleSubmit(e)} >
-            <TextInput
-                type='text'
-                name='content'
-                placeholder='Add Affirmation'
-                onChange={handleChange}
-             />
+            {props.edit ? (
+                <div>
+                <TextInput
+                    type='text'
+                    name='content'
+                    placeholder='Add Affirmation'
+                    onChange={handleChange}
+                />
+                <button>Add Affirmation</button>
+                </div>
+            ): (
+                <div>
+                <TextInput
+                    type='text'
+                    name='content'
+                    placeholder='Add Affirmation'
+                    onChange={handleChange}
+                />
+                <button>Affirmation</button>
+                </div>
+            )}
         </form>
     )
 }

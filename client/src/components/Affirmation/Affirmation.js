@@ -1,10 +1,26 @@
 import React, {useState} from 'react'
-import { __DeleteAffirm, __UpdateAffirm} from '../../services/AffirmationServices'
+import { __CreateAffirm, __DeleteAffirm, __UpdateAffirm} from '../../services/AffirmationServices'
+import AffirmationForm from './AffirmationForm'
 
 const Affirmation = (props) => {
     const {affirmation} = props
     console.log("Affirmation props: ", props)
     const [affirm, setAffirm] = useState(null)
+
+    const handleAdd = async (e) => {
+        e.preventDefault()
+        const formState = {
+             content: affirm,
+        }
+        try {
+            const addAffirm = await __CreateAffirm(formState)
+            props.history.push("/profile")
+            setAffirm('')
+        } catch (error) {
+            throw error
+        }
+    }
+
 
 
     const deleteAffirm = async (e) => {
@@ -19,13 +35,16 @@ const Affirmation = (props) => {
     const updateAffirm = async (e) => {
         console.log("UPDATE affirm", affirmation)
         try {
-            const sentAffirm = {affirmation: affirm}
-            const updateAffirm = await __UpdateAffirm(sentAffirm)
+            const updateAffirm = await __UpdateAffirm(affirmation.id)
             setAffirm(updateAffirm)
         } catch (error) {
             console.log (error)
         }
     }
+
+    if (affirm) {
+        return <AffirmationForm edit={affirm} onSubmit={updateAffirm} />;
+      }
 
     if (affirmation !== null && affirmation !== undefined) {
         return (
