@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import TextInput from '../textInputs/TextInput'
+import TextInput from '../components/textInputs/TextInput'
 import {__SigninUser} from '../services/UserServices'
 
 const SignIn = (props) => {

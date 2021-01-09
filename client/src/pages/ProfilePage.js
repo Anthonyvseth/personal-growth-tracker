@@ -4,6 +4,7 @@ import Affirmations from '../components/affirmation/Affirmations'
 import SignOut from '../components/SignOut'
 
 const ProfilePage = (props) => {
+    console.log("profile page props",props)
     const {user} = props
     if (user !== null && user !== undefined) {
         return (
