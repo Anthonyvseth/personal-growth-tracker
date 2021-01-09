@@ -1,4 +1,5 @@
 import React from 'react'
+import AccomList from '../components/accomplishments/AccomList'
 import Affirmations from '../components/affirmation/Affirmations'
 import SignOut from '../components/SignOut'
 
@@ -9,6 +10,7 @@ const ProfilePage = (props) => {
             <div>
                 <h1>Profile</h1>
                 <div>
+                    <AccomList user={user} />
                     <Affirmations user={user} />
                     <SignOut {...props} />
                 </div>

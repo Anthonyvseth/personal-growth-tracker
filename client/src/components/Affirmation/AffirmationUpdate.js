@@ -1,9 +1,8 @@
-import React, {useState, useEffect, useRef} from 'react'
-import { __CreateAffirm } from '../../services/AffirmationServices'
+import React, {useState} from 'react'
+import { __UpdateAffirm } from '../../services/AffirmationServices'
 
-const AffirmationForm = (props) => {
+const AffirmationUpdate = (props) => {
     const [content, setContent] = useState('')
-    const [formError, setFormError] = useState('')
 
     const handleChange = (e) => {
         const fieldName = e.target.name
@@ -20,24 +19,27 @@ const AffirmationForm = (props) => {
              content: content,
         }
         try {
-            const addAffirm = await __CreateAffirm(formState)
+            const addAffirm = await __UpdateAffirm(formState)
             props.history.push("/profile")
             setContent('')
         } catch (error) {
-            setFormError(true)
+            throw error
         }
     }
 
     return (
         <form onSubmit={(e) => handleSubmit(e)} >
-            <input
-                type='text'
-                name='content'
-                placeholder='Add Affirmation'
-                onChange={handleChange}
-             />
-             <button>Add Affirmation</button>
+            <div>
+                <input
+                    type='text'
+                    name='content'
+                    placeholder='Update Affirmation'
+                    onChange={handleChange}
+                />
+                <button>Update</button>
+            </div>
         </form>
     )
 }
- export default AffirmationForm
+
+export default AffirmationUpdate

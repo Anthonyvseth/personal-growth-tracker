@@ -2,6 +2,7 @@ import React, { useState }from 'react'
 import Affirmation from './Affirmation'
 import AffirmationForm from './AffirmationForm'
 import AffirmationList from './AffirmationList'
+import AffirmationUpdate from './AffirmationUpdate'
 
 const Affirmations = (props) => {
     const {user} = props
@@ -9,8 +10,13 @@ const Affirmations = (props) => {
     
     return (
         <div show={show}>
+        <h1>Affirmations</h1>
             <AffirmationForm 
                 {...props} 
+                user={user}
+            />
+            <AffirmationUpdate
+                {...props}
                 user={user}
             />
             {' '}

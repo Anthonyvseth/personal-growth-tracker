@@ -1,4 +1,3 @@
-import e from 'cors'
 import React, {useState} from 'react'
 import { __CreateAffirm, __DeleteAffirm, __GetAffirms, __UpdateAffirm} from '../../services/AffirmationServices'
 import AffirmationForm from './AffirmationForm'
@@ -7,20 +6,6 @@ const Affirmation = (props) => {
     const {affirmation} = props
     console.log("Affirmation props: ", props)
     const [affirm, setAffirm] = useState(null)
-
-    const handleAdd = async (e) => {
-        e.preventDefault()
-        const formState = {
-             content: affirm,
-        }
-        try {
-            const addAffirm = await __CreateAffirm(formState)
-            props.history.push("/profile")
-            setAffirm('')
-        } catch (error) {
-            throw error
-        }
-    }
 
     const getAffirm = async (e) => {
         e.preventDefault()
@@ -51,10 +36,6 @@ const Affirmation = (props) => {
             console.log (error)
         }
     }
-
-    if (affirm) {
-        return <AffirmationForm edit={affirm} onSubmit={updateAffirm} />;
-      }
 
     if (affirmation !== null && affirmation !== undefined) {
         return (
