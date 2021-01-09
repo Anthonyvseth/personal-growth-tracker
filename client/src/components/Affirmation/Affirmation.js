@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import { __CreateAffirm, __DeleteAffirm, __GetAffirms, __UpdateAffirm} from '../../services/AffirmationServices'
-import AffirmationForm from './AffirmationForm'
+import AffirmationUpdate from './AffirmationUpdate'
 
-const Affirmation = (props) => {
+const Affirmation = (props, {isOpen, toggle}) => {
     const {affirmation} = props
     console.log("Affirmation props: ", props)
     const [affirm, setAffirm] = useState(null)
@@ -17,21 +17,10 @@ const Affirmation = (props) => {
         }
     }
 
-
     const deleteAffirm = async (e) => {
         console.log("DELETE affirm", affirmation)
         try {
             await __DeleteAffirm(affirmation.id)
-        } catch (error) {
-            console.log (error)
-        }
-    }
-
-    const updateAffirm = async (e) => {
-        console.log("UPDATE affirm", affirmation)
-        try {
-            const updateAffirm = await __UpdateAffirm(affirmation.id)
-            setAffirm(updateAffirm)
         } catch (error) {
             console.log (error)
         }
@@ -45,9 +34,9 @@ const Affirmation = (props) => {
                 onClick={(e) => deleteAffirm(e)}>
                     Delete
                 </button>
-                <button
-                onClick={(e) => updateAffirm(e)}>
-                    update
+                <button 
+                isOpen={isOpen} toggle={toggle}>
+                    <AffirmationUpdate affirmation={affirmation.content} />
                 </button>
             </div>
         )

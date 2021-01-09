@@ -2,7 +2,13 @@ import React, {useState} from 'react'
 import { __UpdateAffirm } from '../../services/AffirmationServices'
 
 const AffirmationUpdate = (props) => {
+    const {affirmation} = props
     const [content, setContent] = useState('')
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggle = () => {
+        setIsOpen(!isOpen)
+    }
 
     const handleChange = (e) => {
         const fieldName = e.target.name
@@ -13,27 +19,24 @@ const AffirmationUpdate = (props) => {
         }
     }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        const formState = {
-             content: content,
-        }
+    const updateAffirm = async (e) => {
+        console.log("UPDATE affirm", affirmation)
         try {
-            const addAffirm = await __UpdateAffirm(formState)
-            props.history.push("/profile")
-            setContent('')
+            const updateAffirm = await __UpdateAffirm(affirmation.id)
+            setContent(updateAffirm)
+            console.log(content)
         } catch (error) {
-            throw error
+            console.log (error)
         }
     }
-
+    console.log(props)
     return (
-        <form onSubmit={(e) => handleSubmit(e)} >
+        <form onSubmit={(e) => updateAffirm(e)} >
             <div>
                 <input
                     type='text'
                     name='content'
-                    placeholder='Update Affirmation'
+                    placeholder={affirmation}
                     onChange={handleChange}
                 />
                 <button>Update</button>

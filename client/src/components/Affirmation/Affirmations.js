@@ -15,10 +15,6 @@ const Affirmations = (props) => {
                 {...props} 
                 user={user}
             />
-            <AffirmationUpdate
-                {...props}
-                user={user}
-            />
             {' '}
             <AffirmationList 
                 {...props}
