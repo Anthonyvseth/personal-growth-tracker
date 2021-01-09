@@ -3,7 +3,7 @@ import ApiClient from './ApiClient'
 export const __CreateAffirm = async (formData) => {
     const userId = localStorage.getItem('user_id')
     try {
-        console.log('__CreateTodo todo formData',formData)
+        console.log('__CreateTodo Affirm formData',formData)
         const res = await ApiClient.post(`/users/${userId}/affirmations`, formData)
         return res.data
     } catch (error) {
@@ -24,6 +24,7 @@ export const __GetAffirms = async () => {
 export const __UpdateAffirm = async (id, formData) => {
     try {
         const res = await ApiClient.put(`/affirmations/${id}`, formData)
+        console.log(res.data)
         return res.data
     } catch (error) {
         throw error

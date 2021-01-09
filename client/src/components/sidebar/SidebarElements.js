@@ -14,10 +14,9 @@ export const SidebarContainer = styled.aside`
     align-items: center;
     top: 0;
     left: 0;
-    transition: 0.8s ease-in-out;
+    transition: 0.3s ease-in-out;
     opacity: ${({ isOpen }) =>(isOpen ? '100%': '0')};
     top: ${({ isOpen }) => ( isOpen ? '0' : '-100%')};
-    top: 0;
 `
 
 export const CloseIcon = styled(FaTimes)`
@@ -45,7 +44,7 @@ export const SidebarMenu = styled.ul`
     text-align: center;
 
     @media screen and (max-width: 480px) {
-        grid-template-rows: repeat(6, 80px);
+        grid-template-rows: repeat(6, 60px);
     }
 `
 
@@ -56,13 +55,14 @@ export const SidebarLink = styled(LinkS)`
     font-size: 1.5rem;
     text-decoration: none;
     list-style: none;
-    transition: 0.4s ease-in-out;
+    transition: 0.2s ease-in-out;
+    text-decoration: none;
     color: #fff;
     cursor: pointer;
 
     &:hover {
         color: #01bf71;
-        transition: 0.4s ease-in-out;
+        transition: 0.2s ease-in-out;
     }
 `
 
@@ -81,11 +81,11 @@ export const SidebarRoute = styled(LinkR)`
     outline: none;
     border: none;
     cursor: pointer;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.2s ease-in-out;
     text-decoration: none;
-    
+
     &:hover {
-        transition: all 0.4s ease-in-out;
+        transition: all 0.2s ease-in-out;
         background: #fff;
         color: #010606;
     }

@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
 import { __CreateAffirm } from '../../services/AffirmationServices'
-import TextInput from '../TextInput'
+
 
 const AffirmationForm = (props) => {
     const [content, setContent] = useState(props.edit ? props.edit.value : '')
@@ -34,7 +34,7 @@ const AffirmationForm = (props) => {
         <form onSubmit={(e) => handleSubmit(e)} >
             {props.edit ? (
                 <div>
-                <TextInput
+                <input
                     type='text'
                     name='content'
                     placeholder='Add Affirmation'
@@ -44,7 +44,7 @@ const AffirmationForm = (props) => {
                 </div>
             ): (
                 <div>
-                <TextInput
+                <input
                     type='text'
                     name='content'
                     placeholder='Add Affirmation'

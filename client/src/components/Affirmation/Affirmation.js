@@ -1,5 +1,6 @@
+import e from 'cors'
 import React, {useState} from 'react'
-import { __CreateAffirm, __DeleteAffirm, __UpdateAffirm} from '../../services/AffirmationServices'
+import { __CreateAffirm, __DeleteAffirm, __GetAffirms, __UpdateAffirm} from '../../services/AffirmationServices'
 import AffirmationForm from './AffirmationForm'
 
 const Affirmation = (props) => {
@@ -21,6 +22,15 @@ const Affirmation = (props) => {
         }
     }
 
+    const getAffirm = async (e) => {
+        e.preventDefault()
+        try {
+            const affirm = await __GetAffirms(affirmation)
+            setAffirm(affirm)
+        } catch (error) {
+            throw error
+        }
+    }
 
 
     const deleteAffirm = async (e) => {

@@ -18,7 +18,7 @@ export const Nav = styled.nav`
         transition: 0.8s all ease;
     }
 `
-export const NavBarContainer = styled.div`
+export const NavbarContainer = styled.div`
     display: flex;
     justify-content: space-between;
     height: 80px;

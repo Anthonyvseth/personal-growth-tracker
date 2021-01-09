@@ -1,7 +1,8 @@
+import {FormInput} from './/TextInputElements'
 
 const TextInput = (props) => 
 props.fieldType === 'textfield' ? (
-    <textarea
+    <FormInput
         type={props.type}
         name={props.name}
         value={props.value}
@@ -9,7 +10,7 @@ props.fieldType === 'textfield' ? (
         placeholder={props.placeholder}
     />
 ) : (
-    <input
+    <FormInput
         type={props.type}
         name={props.name}
         value={props.value}

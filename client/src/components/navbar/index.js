@@ -1,7 +1,7 @@
 import React from 'react'
 import {
     Nav, 
-    NavBarContainer, 
+    NavbarContainer, 
     NavLogo, 
     MobileIcon, 
     NavMenu, 
@@ -16,12 +16,15 @@ const NavBar = ({toggle}) => {
     return(
         <div>
             <Nav>
-                <NavBarContainer>
+                <NavbarContainer>
                     <NavLogo to="/">PGT</NavLogo>
-                    <MobileIcon onClick={toggle}>
+                    <MobileIcon >
                         <FaBars />
                     </MobileIcon>
                     <NavMenu>
+                        <NavItem>
+                            <NavLinks to='/'>Home</NavLinks>
+                        </NavItem>
                         <NavItem>
                             <NavLinks to='profile'>Profile</NavLinks>
                         </NavItem>
@@ -35,7 +38,7 @@ const NavBar = ({toggle}) => {
                             <NavBtnLink to='signin'>Signin</NavBtnLink>
                         </NavBtn>
                     </NavMenu>
-                </NavBarContainer>
+                </NavbarContainer>
             </Nav>
         </div>
     )
