@@ -5,7 +5,7 @@ import { FaPencilAlt, FaTrash } from "react-icons/fa";
 
 const Affirmation = (props) => {
     const {affirmation} = props
-    // console.log("Affirmation props: ", affirmation)
+    console.log("Affirmation props: ", affirmation)
     const [affirm, setAffirm] = useState(null)
     const [show, setShow] = useState(false);
 

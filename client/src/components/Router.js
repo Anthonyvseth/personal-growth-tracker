@@ -6,7 +6,7 @@ import SignIn from './SignIn'
 import HomePage from '../pages/HomePage'
 import ProfilePage from '../pages/ProfilePage'
 import { __getUser } from '../services/UserServices'
-import Accomplishment from './accomplishments/Accomplishment'
+import Accoms from '../components/accomplishments/Acomms'
 
 const Router = () => {
     const [user, setUser] = useState(null)
@@ -17,7 +17,7 @@ const Router = () => {
         try {
             const person = await __getUser(parseInt(localUserId))
             console.log("PERSON", person)
-            // setUser(person)
+            setUser(person)
             return person
         } catch (error) {
             throw error
@@ -38,8 +38,19 @@ const Router = () => {
         <main>
             <Switch>
                 <Route exact path='/' component={() => <HomePage />} />
-                <Route path='/signin' component={(props) => <SignIn {...props} setUser={setUser}/>} />
+                <Route path='/signin' component={(props) => <SignIn {...props} setUser={setUser} user={user}/>} />
                 <Route path='/signup' component={(props) => <SignUp {...props} setUser={setUser}/>}/>
+                {/* <ProtectedRoute 
+                    authenticated={user !== null}
+                    path='/accomplishments' 
+                    component={(props) => 
+                    <Accoms
+                        {...props}
+                        user={user} 
+                        setUser={setUser}
+                        onClickSignOut={clearUser}
+                    
+                        />} /> */}
                 <ProtectedRoute 
                     authenticated={user !== null}
                     path='/profile' 
@@ -47,6 +58,7 @@ const Router = () => {
                     <ProfilePage 
                         {...props}
                         user={user} 
+                        setUser={setUser}
                         onClickSignOut={clearUser}
                     
                         />} />
