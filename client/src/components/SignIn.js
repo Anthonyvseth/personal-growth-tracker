@@ -26,8 +26,8 @@ const SignIn = (props) => {
             const loginResponse = await __SigninUser(userData)
             console.log('Login Response: ', loginResponse === undefined);
             if (loginResponse !== "") {
-                console.log("SIGNIN LOGIN RES ", loginResponse)
-                // setUser(loginResponse)
+                console.log("SIGNINLOGIN RES ", loginResponse)
+                setUser(loginResponse)
                 props.history.push('/profile');
             }
         } catch (error) {

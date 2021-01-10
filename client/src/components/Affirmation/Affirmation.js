@@ -5,7 +5,7 @@ import { FaPencilAlt, FaTrash } from "react-icons/fa";
 
 const Affirmation = (props) => {
     const {affirmation} = props
-    // console.log("Affirmation props: ", props)
+    // console.log("Affirmation props: ", affirmation)
     const [affirm, setAffirm] = useState(null)
     const [show, setShow] = useState(false);
 
@@ -24,7 +24,6 @@ const Affirmation = (props) => {
     }
 
     const deleteAffirm = async (e) => {
-        e.preventDefault()
         // console.log("DELETE affirm", affirmation)
         try {
             await __DeleteAffirm(affirmation.id)

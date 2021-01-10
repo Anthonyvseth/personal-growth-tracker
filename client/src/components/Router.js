@@ -9,15 +9,15 @@ import { __getUser } from '../services/UserServices'
 import Accomplishment from './accomplishments/Accomplishment'
 
 const Router = () => {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState(null)
 
     const localUserId = localStorage.getItem('user_id')
 
     const gettingUser = async (user_id) => {
         try {
             const person = await __getUser(parseInt(localUserId))
-            console.log("PERSON ", person)
-            setUser(person)
+            console.log("PERSON", person)
+            // setUser(person)
             return person
         } catch (error) {
             throw error
@@ -30,7 +30,7 @@ const Router = () => {
     }
 
     const clearUser = () => {
-        setUser({});
+        setUser(null);
     };
 
 

@@ -18,6 +18,7 @@ export const __RegisterUser = async (formData) => {
 export const __getUser = async (user_id) => {
     try {
         const res = await ApiClient.get(`/users/${user_id}`)
+        console.log("__GETTING USER", res.data)
         return res.data
     } catch (error) {
         throw error

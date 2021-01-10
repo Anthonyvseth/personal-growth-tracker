@@ -6,36 +6,24 @@ import Accomplishment from './Accomplishment'
 
 const Acomms = (props) => {
     console.log("ACCOMSSSS props", props)
-    const {accomplishment} = props.user
-    const [accoms, setAccoms] = useState('')
+    const {user} = props
 
-    const getAccoms = async (e) => {
-        e.preventDefault()
-        try {
-            const accom = await __GetAccoms(accomplishment)
-            setAccoms(accom)
-        } catch (error) {
-            throw error
-        }
-    }
     return (
         <div>
             <h1>Accomplishments</h1>
-            <div>
-                {accomplishment}
-            </div>
+
             <AccomForm 
                 {...props}
-                user={accomplishment}
+                user={user}
             />
             {' '}
             <AccomList
                 {...props}
-                user={accomplishment}
+                user={user}
             />
             <Accomplishment
                 {...props}
-                user={accomplishment}
+                user={user}
             />
         </div>
     )
