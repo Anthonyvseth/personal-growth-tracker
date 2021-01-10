@@ -1,7 +1,7 @@
 import React from 'react'
-import AccomList from '../components/accomplishments/AccomList'
 import Affirmations from '../components/affirmation/Affirmations'
 import SignOut from '../components/SignOut'
+import Accoms from '../components/accomplishments/Acomms'
 
 const ProfilePage = (props) => {
     console.log("profile page props",props)
@@ -11,8 +11,8 @@ const ProfilePage = (props) => {
             <div>
                 <h1>Profile</h1>
                 <div>
-                    <AccomList user={user} />
-                    <Affirmations user={user} />
+                    <Accoms {...props} user={user} />
+                    <Affirmations {...props} user={user} />
                     <SignOut {...props} />
                 </div>
             </div>

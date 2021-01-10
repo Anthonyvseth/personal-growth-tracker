@@ -3,6 +3,7 @@ import { __UpdateAffirm } from '../../services/AffirmationServices'
 
 const AffirmationUpdate = (props) => {
     const {affirmation} = props
+    // console.log("AFFIRM UPDATE props", props)
     const [content, setContent] = useState('')
     const [isOpen, setIsOpen] = useState(false)
 
@@ -20,26 +21,28 @@ const AffirmationUpdate = (props) => {
     }
 
     const updateAffirm = async (e) => {
-        console.log("UPDATE affirm", affirmation)
+        // console.log("UPDATE affirm", affirmation)
+        const formState = {
+            content: content,
+       }
         try {
-            const updateAffirm = await __UpdateAffirm(affirmation.id)
+            const updateAffirm = await __UpdateAffirm(formState)
             setContent(updateAffirm)
-            console.log(content)
         } catch (error) {
             console.log (error)
         }
     }
-    console.log(props)
+    // console.log(affirmation)
     return (
-        <form onSubmit={(e) => updateAffirm(e)} >
-            <div>
+        <form
+            onSubmit={(e) => updateAffirm(e)} >
+            <div onClick={toggle} >
                 <input
                     type='text'
                     name='content'
                     placeholder={affirmation}
                     onChange={handleChange}
                 />
-                <button>Update</button>
             </div>
         </form>
     )

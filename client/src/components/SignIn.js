@@ -7,7 +7,6 @@ const SignIn = (props) => {
     const {setUser} = props
     const [loginValue, setLoginValue] = useState('')
     const [passwordValue, setPasswordValue] = useState('')
-    const [formError, setFormError] = useState(false)
 
     const emailField = (e) => {
         setLoginValue(e.target.value)
@@ -31,12 +30,12 @@ const SignIn = (props) => {
                 props.history.push('/profile');
             }
         } catch (error) {
-            setFormError(true);
+            throw error
         }
     };
 
     return (
-        <div>
+        <div style={{background: '#ff3f32'}}>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <h1>Login</h1>
                 <div>

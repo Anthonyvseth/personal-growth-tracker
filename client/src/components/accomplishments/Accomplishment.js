@@ -3,7 +3,7 @@ import {__GetAccoms} from '../../services/AccomServices'
 
 const Accomplishment = (props) => {
     const {accomplishment} = props
-    console.log("Affirmation props: ", props)
+    console.log("ACCOM props: ", props)
     const [accom, setAccom] = useState(null)
 
     const getAccom = async (e) => {
@@ -18,7 +18,7 @@ const Accomplishment = (props) => {
 
     return (
         <div>
-            
+            {props.accomplishment}
         </div>
     )
 }

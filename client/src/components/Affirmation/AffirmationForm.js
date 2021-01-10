@@ -3,7 +3,6 @@ import { __CreateAffirm } from '../../services/AffirmationServices'
 
 const AffirmationForm = (props) => {
     const [content, setContent] = useState('')
-    const [formError, setFormError] = useState('')
 
     const handleChange = (e) => {
         const fieldName = e.target.name
@@ -15,7 +14,6 @@ const AffirmationForm = (props) => {
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
         const formState = {
              content: content,
         }
@@ -24,7 +22,7 @@ const AffirmationForm = (props) => {
             props.history.push("/profile")
             setContent('')
         } catch (error) {
-            setFormError(true)
+            throw error
         }
     }
 
@@ -41,3 +39,6 @@ const AffirmationForm = (props) => {
     )
 }
  export default AffirmationForm
+
+
+ 

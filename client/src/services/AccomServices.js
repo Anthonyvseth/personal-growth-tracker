@@ -4,8 +4,9 @@ export const __CreateAccom = async (formData) => {
     const userId = localStorage.getItem('user_id')
     try {
         console.log("__CreateAccom FormData", formData)
-        const res = await ApiClient.post(`/users/${userId}/accomplistments`, formData)
-        return res.data
+        const res = await ApiClient.post(`/users/${userId}/accomplishments`, formData)
+        console.log("CREATE ACCOM Data", res)
+        return res
     } catch (error) {
         throw error
     }

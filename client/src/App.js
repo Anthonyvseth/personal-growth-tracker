@@ -6,7 +6,7 @@ import Layout from './components/Layout';
 const App = () => {
   return (
     <div className="App">
-      {/* <Layout /> */}
+      <Layout />
       <Router />
     </div>
   );

@@ -8,7 +8,6 @@ const SignUp = (props) => {
     const [lastName, setlastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [formError, setFormError] = useState('')
 
     const formChange = (e) => {
         const fieldName = e.target.name
@@ -47,7 +46,7 @@ const SignUp = (props) => {
         props.setUser(userResponse)
         props.history.push('/profile');
       } catch (error) {
-        setFormError(true);
+        throw error
       }
     }   
     return (

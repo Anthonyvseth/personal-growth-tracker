@@ -1,4 +1,4 @@
-import {FormInput} from './/TextInputElements'
+import {FormInput} from './TextInputElements'
 
 const TextInput = (props) => 
 props.fieldType === 'textfield' ? (

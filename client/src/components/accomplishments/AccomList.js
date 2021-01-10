@@ -1,12 +1,13 @@
 import React from 'react'
-import { AccomForm } from './AccomForm'
+
 import Accomplishment from './Accomplishment'
 
 const AccomList = (props) => {
+    const {accomplishment} = props.user
+    console.log("ACCOMLIST PROPS", accomplishment)
     return (
         <div>
-            <AccomForm />
-            <Accomplishment />
+            <Accomplishment {...accomplishment}/>
         </div>
     )
 }

@@ -6,6 +6,7 @@ import SignIn from './SignIn'
 import HomePage from '../pages/HomePage'
 import ProfilePage from '../pages/ProfilePage'
 import { __getUser } from '../services/UserServices'
+import Accomplishment from './accomplishments/Accomplishment'
 
 const Router = () => {
     const [user, setUser] = useState(null)
@@ -36,7 +37,7 @@ const Router = () => {
         <main>
             <Switch>
                 <Route exact path='/' component={() => <HomePage />} />
-                <Route path='signin' component={(props) => <SignIn {...props} setAccount={setUser}/>} />
+                <Route path='/signin' component={(props) => <SignIn {...props} setAccount={setUser}/>} />
                 <Route path='/signup' component={(props) => <SignUp {...props} setUser={setUser}/>}/>
                 <ProtectedRoute 
                     authenticated={user !== null}
