@@ -6,6 +6,7 @@ import AffirmationUpdate from './AffirmationUpdate'
 
 const Affirmations = (props) => {
     const {user} = props
+    // console.log("AFFFIRMMMSS user-props", user)
     const [show, setShow] = useState(true)
     
     return (

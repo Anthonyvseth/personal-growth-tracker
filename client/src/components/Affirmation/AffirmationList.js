@@ -2,8 +2,9 @@ import React from 'react'
 import Affirmation from './Affirmation'
 
 const AffirmationList = (props) => {
+    // console.log("AFFIRM PROPS", props)
     const { affirmations } = props.user
-    
+    // console.log("AFFFIRMMMMSSSS ", affirmations)
     if ( affirmations !== null && affirmations !== undefined && affirmations.length > 0) {
     return (
         <div>

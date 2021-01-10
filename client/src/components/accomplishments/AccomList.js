@@ -3,8 +3,8 @@ import { __GetAccoms } from '../../services/AccomServices'
 import Accomplishment from './Accomplishment'
 
 const AccomList = (props) => {
-    console.log("ACCOMLIST PROPS", props.user)
-    // const {accomplishment} = props.user
+    // console.log("ACCOMLIST PROPS", props)
+    const {accomplishment} = props.user
     // console.log("ACOMLISTTTTTTT ", accomplishment)
     
     const [accom, setAccom] = useState('')

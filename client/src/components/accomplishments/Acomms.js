@@ -5,11 +5,12 @@ import AccomList from './AccomList'
 import Accomplishment from './Accomplishment'
 
 const Acomms = (props) => {
-    console.log("ACCOMSSSS props", props)
     const {user} = props
+    // console.log("ACCOMSSSS user-props", user)
+    const [show, setShow] = useState(true)
 
     return (
-        <div>
+        <div show={show}>
             <h1>Accomplishments</h1>
 
             <AccomForm 

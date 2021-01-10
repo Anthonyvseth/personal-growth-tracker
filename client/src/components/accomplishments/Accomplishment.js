@@ -5,16 +5,15 @@ import AccomList from './AccomList';
 
 const Accomplishment = (props) => {
     // console.log("MAIN ACCOM props", props)
-    const {accomplishment} = props.user
-    console.log("ACCCCCCCCOM", accomplishment)
-    // console.log("MAIN ACCOM", accomplishment)
+    const {accomplishment} = props
+    // console.log("ACCCCCCCCOM", accomplishment)
         const [accoms, setAccoms] = useState(null)
 
     const getAccoms = async () => {
         // e.preventDefault()
         try {
             const accom = await __GetAccoms(accomplishment)
-            console.log("ACOMM from GetACCOMS", accom)
+            // console.log("ACOMM from GetACCOMS", accom)
             setAccoms(accom)
         } catch (error) {
             throw error
@@ -36,7 +35,9 @@ const Accomplishment = (props) => {
     }
     return ( accomplishment ? (
         <div>
-            {accomplishment.title}
+            <h3>{accomplishment.title}</h3>
+            <h4>{accomplishment.description}</h4>
+            <h4>{accomplishment.rating}</h4>
             <button
                 onClick={(e) => deleteAccom(e)}>
                     <FaTrash />

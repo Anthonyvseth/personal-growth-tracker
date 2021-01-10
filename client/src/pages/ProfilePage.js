@@ -4,7 +4,7 @@ import SignOut from '../components/SignOut'
 import Accoms from '../components/accomplishments/Acomms'
 
 const ProfilePage = (props) => {
-    console.log("profile page props",props)
+    // console.log("profile page props",props)
     const {user} = props
     if (user !== null && user !== undefined) {
         return (

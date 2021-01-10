@@ -40,7 +40,7 @@ const Router = () => {
                 <Route exact path='/' component={() => <HomePage />} />
                 <Route path='/signin' component={(props) => <SignIn {...props} setUser={setUser} user={user}/>} />
                 <Route path='/signup' component={(props) => <SignUp {...props} setUser={setUser}/>}/>
-                {/* <ProtectedRoute 
+                <ProtectedRoute 
                     authenticated={user !== null}
                     path='/accomplishments' 
                     component={(props) => 
@@ -50,7 +50,7 @@ const Router = () => {
                         setUser={setUser}
                         onClickSignOut={clearUser}
                     
-                        />} /> */}
+                        />} />
                 <ProtectedRoute 
                     authenticated={user !== null}
                     path='/profile' 

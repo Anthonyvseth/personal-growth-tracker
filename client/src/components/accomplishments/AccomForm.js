@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { __CreateAccom } from '../../services/AccomServices'
 
 const AccomForm = (props) => {
-    console.log("ACCOM props",props)
+    // console.log("ACCOM props",props)
     const [accom, setAccom] = useState('')
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')

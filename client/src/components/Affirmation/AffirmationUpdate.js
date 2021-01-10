@@ -3,7 +3,7 @@ import { __UpdateAffirm } from '../../services/AffirmationServices'
 
 const AffirmationUpdate = (props) => {
     const {affirmation} = props
-    // console.log("AFFIRM UPDATE props", props)
+    console.log("AFFIRM UPDATE props", affirmation)
     const [content, setContent] = useState('')
     const [isOpen, setIsOpen] = useState(false)
 
@@ -21,13 +21,14 @@ const AffirmationUpdate = (props) => {
     }
 
     const updateAffirm = async (e) => {
+        e.preventDefault()
         // console.log("UPDATE affirm", affirmation)
         const formState = {
             content: content,
        }
         try {
-            const updateAffirm = await __UpdateAffirm(formState)
-            setContent(updateAffirm)
+            const updateAffirm = await __UpdateAffirm(affirmation.id, formState)
+            setContent(updateAffirm[1][0].content)
         } catch (error) {
             console.log (error)
         }
@@ -40,7 +41,8 @@ const AffirmationUpdate = (props) => {
                 <input
                     type='text'
                     name='content'
-                    placeholder={affirmation}
+                    value={content}
+                    placeholder={affirmation.content}
                     onChange={handleChange}
                 />
             </div>

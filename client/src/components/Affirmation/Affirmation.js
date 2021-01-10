@@ -5,12 +5,12 @@ import { FaPencilAlt, FaTrash } from "react-icons/fa";
 
 const Affirmation = (props) => {
     const {affirmation} = props
-    console.log("Affirmation props: ", affirmation)
+    // console.log("AFFFFFFFF: ", affirmation)
     const [affirm, setAffirm] = useState(null)
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = () => setShow(!show);
   
 
     const getAffirm = async (e) => {
@@ -42,11 +42,13 @@ const Affirmation = (props) => {
                 </button>
                 <button onClick={handleShow}>
                 <FaPencilAlt
-                    show={(show)}
+                    show={show}
                     onHide={handleClose}
                 />
-                    <AffirmationUpdate  affirmation={affirmation.content} />
+                    
                 </button>
+                {show ? <AffirmationUpdate  affirmation={affirmation} /> :
+                null }
             </div>
         )
         } else {
