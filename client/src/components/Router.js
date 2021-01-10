@@ -9,13 +9,14 @@ import { __getUser } from '../services/UserServices'
 import Accomplishment from './accomplishments/Accomplishment'
 
 const Router = () => {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState({})
 
     const localUserId = localStorage.getItem('user_id')
 
     const gettingUser = async (user_id) => {
         try {
             const person = await __getUser(parseInt(localUserId))
+            console.log("PERSON ", person)
             setUser(person)
             return person
         } catch (error) {
@@ -29,7 +30,7 @@ const Router = () => {
     }
 
     const clearUser = () => {
-        setUser(null);
+        setUser({});
     };
 
 
@@ -37,7 +38,7 @@ const Router = () => {
         <main>
             <Switch>
                 <Route exact path='/' component={() => <HomePage />} />
-                <Route path='/signin' component={(props) => <SignIn {...props} setAccount={setUser}/>} />
+                <Route path='/signin' component={(props) => <SignIn {...props} setUser={setUser}/>} />
                 <Route path='/signup' component={(props) => <SignUp {...props} setUser={setUser}/>}/>
                 <ProtectedRoute 
                     authenticated={user !== null}

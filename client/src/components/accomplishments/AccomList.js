@@ -3,7 +3,7 @@ import React from 'react'
 import Accomplishment from './Accomplishment'
 
 const AccomList = (props) => {
-    const {accomplishment} = props.user
+    const {accomplishment} = props
     console.log("ACCOMLIST PROPS", accomplishment)
     return (
         <div>
