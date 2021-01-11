@@ -4,6 +4,7 @@ import SignOut from '../components/signin/SignOut'
 import Accoms from '../components/accomplishments/Acomms'
 import Sidebar from '../components/navbar/index'
 import Navbar from '../components/sidebar/index'
+import Goals from '../components/goals/Goals'
 
 const ProfilePage = (props) => {
     // console.log("profile page props",props)
@@ -20,6 +21,7 @@ const ProfilePage = (props) => {
                 <Sidebar isOpen={isOpen} toggle={toggle} />
                 <Navbar toggle={toggle} />
                 <Accoms {...props} user={user} />
+                <Goals {...props} user={user} />
                 <Affirmations {...props} user={user} />
                 {/* <SignOut {...props} /> */}
             </div>

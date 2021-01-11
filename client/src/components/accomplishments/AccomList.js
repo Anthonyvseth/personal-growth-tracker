@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { __GetAccoms } from '../../services/AccomServices'
 import Accomplishment from './Accomplishment'
 import {
@@ -8,20 +8,7 @@ import {
 const AccomList = (props) => {
     // console.log("ACCOMLIST PROPS", props)
     const {accomplishment} = props.user
-    // console.log("ACOMLISTTTTTTT ", accomplishment)
-    
-    const [accom, setAccom] = useState('')
-    
-    // const getAccom = async (e) => {
-    //     try {
-    //         const res = await __GetAccoms(accomplishment)
-    //         console.log("GETACCOM... ACCOMLIST", res.data)
-    //         setAccom(res.data)
-    //     } catch (error) {
-    //         throw error
-    //     }
-    // }
-    // getAccom()
+    console.log("ACOMLISTTTTTTT ", accomplishment) 
 
     if ( accomplishment !== null && accomplishment !== undefined && accomplishment.length > 0) {
     return (

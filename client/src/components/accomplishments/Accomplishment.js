@@ -14,7 +14,7 @@ import {
 const Accomplishment = (props) => {
     // console.log("MAIN ACCOM props", props)
     const {accomplishment} = props
-    // console.log("ACCCCCCCCOM", accomplishment)
+    console.log("ACCCCCCCCOM", accomplishment)
     const [accoms, setAccoms] = useState(null)
     const [show, setShow] = useState(false);
 

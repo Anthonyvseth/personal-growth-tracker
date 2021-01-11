@@ -7,6 +7,8 @@ import HeroSection from '../components/heroSection'
 import Accoms from '../components/accomplishments/Acomms'
 import Affirmations from '../components/affirmation/Affirmations'
 import InfoSection from '../components/infoSection/index'
+import Goals from '../components/goals/Goals'
+
 const HomePage = (props) => {
     const {user} = props
     const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +24,7 @@ const HomePage = (props) => {
             <HeroSection />
             {/* <InfoSection /> */}
             <Accoms {...props} user={user} />
+            <Goals {...props} user={user} />
             <Affirmations {...props} user={user} />
         </>
     )

@@ -1,64 +1,71 @@
-import React, {useState} from 'react'
-import {} from '../../services/GoalServices'
+import React, {useState, useEffect} from 'react'
+import {__GetGoals, __DeleteGoal } from '../../services/GoalServices'
 import GoalUpdate from './GoalUpdate'
 import { FaPencilAlt, FaTrash } from "react-icons/fa";
+import {
+    GoalContainer,
+    GoalCard,
+    GoalP,
+    GoalH2,
+    GoalNum
+    } from './GoalElements'
 
-
-const Affirmation = (props) => {
-    const {affirmation} = props
-    // console.log("AFFFFFFFF: ", affirmation)
-    const [affirm, setAffirm] = useState(null)
+const Goal = (props) => {
+    // console.log("MAIN GGGGGGGOALprops", props)
+    const {goal} = props
+    console.log("MAIN GGGGGGGOALprops", goal)
+    const [goals, setGoals] = useState(null)
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(!show);
   
 
-    const getAffirm = async (e) => {
-        e.preventDefault()
+    const getGoals = async () => {
+        // e.preventDefault()
         try {
-            const affirm = await __GetAffirms(affirmation)
-            setAffirm(affirm)
+            const getGoal = await __GetGoals(goal)
+            // console.log("ACOMM from GetACCOMS", accom)
+            setGoals(getGoal)
         } catch (error) {
             throw error
         }
     }
 
-    const deleteAffirm = async (e) => {
-        // console.log("DELETE affirm", affirmation)
+    useEffect(() => {
+        getGoals()
+    }, [])
+
+    const deleteAccom = async (e) => {
+        console.log("DELETE ACCOM", goal)
+        e.preventDefault()
         try {
-            await __DeleteAffirm(affirmation.id)
+            await __DeleteGoal(props.goal.id)
         } catch (error) {
-            console.log (error)
+            throw error
         }
     }
-
-    if (affirmation !== null && affirmation !== undefined) {
-        return (
-            <AffirmContainer>
-                <AffirmCard>
-                
-                    <AffirmH1>{affirmation.content}</AffirmH1>
-                    <button
-                    onClick={(e) => deleteAffirm(e)}>
-                        <FaTrash />
-                    </button>
-                    <button onClick={handleShow}>
-                    <FaPencilAlt
-                        show={show}
-                        onHide={handleClose}
-                    />
-                        
-                    </button>
-                    {show ? <AffirmationUpdate  affirmation={affirmation} /> :
-                    null }
-                    
-                </AffirmCard>
-            </AffirmContainer>
-        )
-        } else {
-            return null
-        }
+    return ( goal ? (
+        <GoalContainer>
+            <GoalCard > 
+            <GoalH2 onClick={handleShow} >{goal.title}</GoalH2>
+            <GoalP onClick={handleShow} >{goal.description}</GoalP>
+            <GoalNum onClick={handleShow} >{goal.rating}</GoalNum>
+            <button
+                onClick={(e) => deleteAccom(e)}>
+                    <FaTrash />
+            </button>
+                <div onClick={handleShow}>
+            </div>
+                {show ? <GoalUpdate  goal={goal} /> :
+                null }
+            </GoalCard>
+            </GoalContainer>
+    ) : (
+        <h1>{null}</h1>
+    )
+    )
 }
 
-export default Affirmation
+
+export default Goal

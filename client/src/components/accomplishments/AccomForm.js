@@ -37,7 +37,7 @@ const AccomForm = (props) => {
         }
         try {
             const addAccom = await __CreateAccom(formState)
-            props.history.push("/profile")
+            props.history.push("/")
             setAccom('')
         } catch (error) {
             throw error
