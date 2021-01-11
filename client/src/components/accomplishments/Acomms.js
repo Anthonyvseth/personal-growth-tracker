@@ -3,7 +3,7 @@ import { __GetAccoms } from '../../services/AccomServices'
 import  AccomForm  from './AccomForm'
 import AccomList from './AccomList'
 import Accomplishment from './Accomplishment'
-import {AccomHeader} from './AccomElements'
+import {AccomHeader, AccomH1} from './AccomElements'
 
 const Acomms = (props) => {
     const {user} = props
@@ -11,9 +11,7 @@ const Acomms = (props) => {
     const [show, setShow] = useState(true)
 
     return (
-        <AccomHeader show={show}>
-            <h1>Accomplishments</h1>
-
+        <AccomHeader>
             <AccomForm 
                 {...props}
                 user={user}

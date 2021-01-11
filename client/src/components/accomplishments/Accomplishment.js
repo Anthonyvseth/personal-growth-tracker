@@ -7,8 +7,8 @@ import {
     AccomCard,
     AccomContainer,
     AccomP,
-    AccomH2
-
+    AccomH2,
+    AccomNum
     } from './AccomElements';
 
 const Accomplishment = (props) => {
@@ -49,22 +49,18 @@ const Accomplishment = (props) => {
     return ( accomplishment ? (
         <AccomContainer>
             <AccomCard > 
-            <AccomH2>{accomplishment.title}</AccomH2>
-            <AccomP>{accomplishment.description}</AccomP>
-            <h4>{accomplishment.rating}</h4>
+            <AccomH2 onClick={handleShow} >{accomplishment.title}</AccomH2>
+            <AccomP onClick={handleShow} >{accomplishment.description}</AccomP>
+            <AccomNum onClick={handleShow} >{accomplishment.rating}</AccomNum>
             <button
                 onClick={(e) => deleteAccom(e)}>
                     <FaTrash />
             </button>
-                <button onClick={handleShow}>
-                <FaPencilAlt
-                    show={show}
-                    onHide={handleClose}
-                />
-            </button>
+                <div onClick={handleShow}>
+            </div>
                 {show ? <AccomUpdate  accomplishment={accomplishment} /> :
                 null }
-                </AccomCard>
+            </AccomCard>
             </AccomContainer>
     ) : (
         <h1>{null}</h1>

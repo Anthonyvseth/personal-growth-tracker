@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { __GetAccoms } from '../../services/AccomServices'
 import Accomplishment from './Accomplishment'
+import {
+    AccomWrapper 
+} from './AccomElements'
 
 const AccomList = (props) => {
     // console.log("ACCOMLIST PROPS", props)
@@ -22,7 +25,7 @@ const AccomList = (props) => {
 
     if ( accomplishment !== null && accomplishment !== undefined && accomplishment.length > 0) {
     return (
-        <>
+        <AccomWrapper>
             {accomplishment.map((accomplishment, index) => {
                 return (
                     <Accomplishment
@@ -33,7 +36,7 @@ const AccomList = (props) => {
                 )
             })
             }
-        </>
+        </AccomWrapper>
     )
 } else {
     return null

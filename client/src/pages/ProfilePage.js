@@ -20,7 +20,7 @@ const ProfilePage = (props) => {
                 <Sidebar isOpen={isOpen} toggle={toggle} />
                 <Navbar toggle={toggle} />
                 <Accoms {...props} user={user} />
-                {/* <Affirmations {...props} user={user} /> */}
+                <Affirmations {...props} user={user} />
                 {/* <SignOut {...props} /> */}
             </div>
         )

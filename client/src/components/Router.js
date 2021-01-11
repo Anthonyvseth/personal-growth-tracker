@@ -7,6 +7,7 @@ import HomePage from '../pages/HomePage'
 import ProfilePage from '../pages/ProfilePage'
 import { __getUser } from '../services/UserServices'
 import Accoms from '../components/accomplishments/Acomms'
+import Affirmations from '../components/affirmation/Affirmations'
 
 const Router = () => {
     const [user, setUser] = useState(null)
@@ -45,6 +46,17 @@ const Router = () => {
                     path='/accomplishments' 
                     component={(props) => 
                     <Accoms
+                        {...props}
+                        user={user} 
+                        setUser={setUser}
+                        onClickSignOut={clearUser}
+                    
+                        />} />
+                        <ProtectedRoute 
+                    authenticated={user !== null}
+                    path='/affirmations' 
+                    component={(props) => 
+                    <Affirmations
                         {...props}
                         user={user} 
                         setUser={setUser}

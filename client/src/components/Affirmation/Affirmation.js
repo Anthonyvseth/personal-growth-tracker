@@ -2,6 +2,9 @@ import React, {useState} from 'react'
 import { __CreateAffirm, __DeleteAffirm, __GetAffirms, __UpdateAffirm} from '../../services/AffirmationServices'
 import AffirmationUpdate from './AffirmationUpdate'
 import { FaPencilAlt, FaTrash } from "react-icons/fa";
+import {
+    AffirmContainer, AffirmCard, AffirmH1
+    } from './AffirmElements'
 
 const Affirmation = (props) => {
     const {affirmation} = props
@@ -34,22 +37,26 @@ const Affirmation = (props) => {
 
     if (affirmation !== null && affirmation !== undefined) {
         return (
-            <div>
-                {affirmation.content}
-                <button
-                onClick={(e) => deleteAffirm(e)}>
-                    <FaTrash />
-                </button>
-                <button onClick={handleShow}>
-                <FaPencilAlt
-                    show={show}
-                    onHide={handleClose}
-                />
+            <AffirmContainer>
+                <AffirmCard>
+                
+                    <AffirmH1>{affirmation.content}</AffirmH1>
+                    <button
+                    onClick={(e) => deleteAffirm(e)}>
+                        <FaTrash />
+                    </button>
+                    <button onClick={handleShow}>
+                    <FaPencilAlt
+                        show={show}
+                        onHide={handleClose}
+                    />
+                        
+                    </button>
+                    {show ? <AffirmationUpdate  affirmation={affirmation} /> :
+                    null }
                     
-                </button>
-                {show ? <AffirmationUpdate  affirmation={affirmation} /> :
-                null }
-            </div>
+                </AffirmCard>
+            </AffirmContainer>
         )
         } else {
             return null

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {__UpdateAccom} from '../../services/AccomServices'
 import Accomplishment from './Accomplishment'
+import { FormInput, Form, FormButton } from './AccomElements'
 
 const AccomUpdate = (props) => {
     const {accomplishment} = props
@@ -47,22 +48,22 @@ const AccomUpdate = (props) => {
     }
 
     return (
-        <form onSubmit={(e) => updateAccom(e)}>
-            <input
+        <Form onSubmit={(e) => updateAccom(e)}>
+            <FormInput
                 type='text'
                 name='title'
                 value={title}
                 placeholder='Title'
                 onChange={handleChange}
              />
-             <input
+             <FormInput
                 type='text'
                 name='description'
                 value={description}
                 placeholder='description'
                 onChange={handleChange}
              />
-             <input
+             <FormInput
                 type='integer'
                 name='rating'
                 value={rating}
@@ -70,7 +71,7 @@ const AccomUpdate = (props) => {
                 onChange={handleChange}
              />
             <button>Submit</button>
-        </form>
+        </Form>
     )
 }
 
