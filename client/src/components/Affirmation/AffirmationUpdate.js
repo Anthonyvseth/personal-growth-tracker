@@ -37,7 +37,7 @@ const AffirmationUpdate = (props) => {
     return (
         <form
             onSubmit={(e) => updateAffirm(e)} >
-            <div onClick={toggle} >
+            <div >
                 <input
                     type='text'
                     name='content'

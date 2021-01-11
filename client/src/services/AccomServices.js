@@ -25,7 +25,7 @@ export const __GetAccoms = async () => {
 export const __UpdateAccom = async (id, formData) => {
     try {
         const res = await ApiClient.put(`/accomplishments/${id}`, formData)
-        console.log('__UpdateAccom data', res.data)
+        console.log(res)
         return res.data
     } catch (error) {
         throw error

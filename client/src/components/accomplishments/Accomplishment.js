@@ -2,12 +2,18 @@ import React, {useState, useEffect} from 'react'
 import {__DeleteAffirm, __GetAccoms} from '../../services/AccomServices'
 import { FaPencilAlt, FaTrash } from "react-icons/fa";
 import AccomList from './AccomList';
+import AccomUpdate from './AccomUpdate';
 
 const Accomplishment = (props) => {
     // console.log("MAIN ACCOM props", props)
     const {accomplishment} = props
     // console.log("ACCCCCCCCOM", accomplishment)
-        const [accoms, setAccoms] = useState(null)
+    const [accoms, setAccoms] = useState(null)
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(!show);
+  
 
     const getAccoms = async () => {
         // e.preventDefault()
@@ -41,10 +47,19 @@ const Accomplishment = (props) => {
             <button
                 onClick={(e) => deleteAccom(e)}>
                     <FaTrash />
+            </button>
+                <button onClick={handleShow}>
+                <FaPencilAlt
+                    show={show}
+                    onHide={handleClose}
+                />
+                    
                 </button>
-        </div>
+                {show ? <AccomUpdate  accomplishment={accomplishment} /> :
+                null }
+            </div>
     ) : (
-        <h1>...loading</h1>
+        <h1>{null}</h1>
     )
     )
 }
