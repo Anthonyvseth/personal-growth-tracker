@@ -47,19 +47,7 @@ const NavBar = ({toggle}) => {
                     <NavMenu>
                         <NavItem>
                             <NavLinks 
-                                to="profile"
-                                smooth={true}
-                                duration={500}
-                                spy={true}
-                                exact='true'
-                                offset={-80}
-                            >
-                                Profile
-                            </NavLinks>
-                        </NavItem>
-                        <NavItem>
-                            <NavLinks 
-                                to='accomplishments'
+                                to="accomplishemts"
                                 smooth={true}
                                 duration={500}
                                 spy={true}
@@ -67,9 +55,32 @@ const NavBar = ({toggle}) => {
                                 offset={-80}
                             >
                                 Accomplishments
+                            </NavLinks>
+                        </NavItem>
+                        <NavItem>
+                            <NavLinks 
+                                to='goals'
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                exact='true'
+                                offset={-80}
+                            >
+                                Goals
                                 </NavLinks>
                         </NavItem>
                         <NavItem>
+                                <NavLinks
+                                to='affirmations'
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                exact='true'
+                                offset={-80}
+                                >
+                                Affirmtaions
+                                </NavLinks>
+                            </NavItem><NavItem>
                                 <NavLinks
                                 to='signup'
                                 smooth={true}

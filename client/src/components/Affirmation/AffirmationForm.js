@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
 import { __CreateAffirm } from '../../services/AffirmationServices'
+import { AffirmH1, Form, FormInput } from './AffirmElements'
 
 const AffirmationForm = (props) => {
     const [content, setContent] = useState('')
@@ -27,15 +28,15 @@ const AffirmationForm = (props) => {
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)} >
-            <input
+        <Form onSubmit={(e) => handleSubmit(e)} >
+        <AffirmH1>Affirmations</AffirmH1>
+            <FormInput
                 type='text'
                 name='content'
                 placeholder='Add Affirmation'
                 onChange={handleChange}
              />
-             <button>Add Affirmation</button>
-        </form>
+        </Form>
     )
 }
  export default AffirmationForm

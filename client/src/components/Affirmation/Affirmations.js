@@ -3,6 +3,7 @@ import Affirmation from './Affirmation'
 import AffirmationForm from './AffirmationForm'
 import AffirmationList from './AffirmationList'
 import AffirmationUpdate from './AffirmationUpdate'
+import { AffirmHeader } from './AffirmElements'
 
 const Affirmations = (props) => {
     const {user} = props
@@ -10,8 +11,7 @@ const Affirmations = (props) => {
     const [show, setShow] = useState(true)
     
     return (
-        <div show={show}>
-        <h1>Affirmations</h1>
+        <AffirmHeader>
             <AffirmationForm 
                 {...props} 
                 user={user}
@@ -25,7 +25,7 @@ const Affirmations = (props) => {
                 {...props}
                 user={user}
             />
-        </div>
+        </AffirmHeader>
     )
 }
 

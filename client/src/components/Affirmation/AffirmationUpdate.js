@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import { __UpdateAffirm } from '../../services/AffirmationServices'
+import { Form, FormInput } from './AffirmElements'
+
 
 const AffirmationUpdate = (props) => {
     const {affirmation} = props
@@ -35,18 +37,16 @@ const AffirmationUpdate = (props) => {
     }
     // console.log(affirmation)
     return (
-        <form
+        <Form
             onSubmit={(e) => updateAffirm(e)} >
-            <div >
-                <input
+                <FormInput
                     type='text'
                     name='content'
                     value={content}
                     placeholder={affirmation.content}
                     onChange={handleChange}
                 />
-            </div>
-        </form>
+        </Form>
     )
 }
 

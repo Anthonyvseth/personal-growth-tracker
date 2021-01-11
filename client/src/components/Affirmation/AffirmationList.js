@@ -1,5 +1,6 @@
 import React from 'react'
 import Affirmation from './Affirmation'
+import { AffirmWrapper } from './AffirmElements'
 
 const AffirmationList = (props) => {
     // console.log("AFFIRM PROPS", props)
@@ -7,7 +8,7 @@ const AffirmationList = (props) => {
     // console.log("AFFFIRMMMMSSSS ", affirmations)
     if ( affirmations !== null && affirmations !== undefined && affirmations.length > 0) {
     return (
-        <div>
+        <AffirmWrapper>
             {affirmations.map((affirmation, index) => {
                 return (
                     <Affirmation
@@ -17,7 +18,7 @@ const AffirmationList = (props) => {
                 )
             })
             }
-        </div>
+        </AffirmWrapper>
     )
 } else {
     return null

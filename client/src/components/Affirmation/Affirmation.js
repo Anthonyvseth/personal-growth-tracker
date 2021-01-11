@@ -3,7 +3,7 @@ import { __CreateAffirm, __DeleteAffirm, __GetAffirms, __UpdateAffirm} from '../
 import AffirmationUpdate from './AffirmationUpdate'
 import { FaPencilAlt, FaTrash } from "react-icons/fa";
 import {
-    AffirmContainer, AffirmCard, AffirmH1
+    AffirmContainer, AffirmCard, AffirmH2
     } from './AffirmElements'
 
 const Affirmation = (props) => {
@@ -40,17 +40,10 @@ const Affirmation = (props) => {
             <AffirmContainer>
                 <AffirmCard>
                 
-                    <AffirmH1>{affirmation.content}</AffirmH1>
+                    <AffirmH2 onClick={handleShow} >{affirmation.content}</AffirmH2>
                     <button
                     onClick={(e) => deleteAffirm(e)}>
                         <FaTrash />
-                    </button>
-                    <button onClick={handleShow}>
-                    <FaPencilAlt
-                        show={show}
-                        onHide={handleClose}
-                    />
-                        
                     </button>
                     {show ? <AffirmationUpdate  affirmation={affirmation} /> :
                     null }
