@@ -1,12 +1,15 @@
 import React from 'react'
-import SignIn from '../components/SignIn'
-import SignUp from '../components/SignUp'
+import SignIn from '../components/signin/SignIn'
+import SignUp from '../components/signin/SignUp'
+import Sidebar from '../components/navbar/index'
+import Navbar from '../components/sidebar/index'
 
-const HomePage = (props) => {
+const HomePage = (isOpen, toggle) => {
 
     return (
         <div>
-            <h1>WELCOME!!</h1>
+            <Sidebar isOpen={isOpen} toggle={toggle} />
+            <Navbar toggle={toggle} />
             <SignIn />
             <SignUp />
         </div>

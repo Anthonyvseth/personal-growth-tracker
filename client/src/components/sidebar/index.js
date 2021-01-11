@@ -19,14 +19,64 @@ const SideBar = ({isOpen, toggle}) => {
             </Icon>
             <SidebarWrapper>
                 <SidebarMenu>
-                    <SidebarLink to='/' onClick={toggle}>Home</SidebarLink>
-                    <SidebarLink to='profile' onClick={toggle}>Profile</SidebarLink>
-                    <SidebarLink to='accomplishments' onClick={toggle}>Accomplishments</SidebarLink>
-                    <SidebarLink to='about' onClick={toggle}>About</SidebarLink>
-                    <SidebarLink to='signup' onClick={toggle}>Sign Up</SidebarLink>
+                    <SidebarLink
+                        to='/' 
+                        onClick={toggle}
+                        smooth={true}
+                        duration={500}
+                        spy={true}
+                        exact='true'
+                        offset={-80}
+                     >
+                        Home
+                    </SidebarLink>
+                    <SidebarLink 
+                        to='/profile' 
+                        onClick={toggle}
+                        smooth={true}
+                        duration={500}
+                        spy={true}
+                        exact='true'
+                        offset={-80}
+                    >
+                        Profile
+                    </SidebarLink>
+                    <SidebarLink 
+                        to='/accomplishments' 
+                        onClick={toggle}
+                        smooth={true}
+                        duration={500}
+                        spy={true}
+                        exact='true'
+                        offset={-80}
+                    >
+                        Accomplishments
+                    </SidebarLink>
+                    <SidebarLink 
+                        to='/about' 
+                        onClick={toggle}
+                        smooth={true}
+                        duration={500}
+                        spy={true}
+                        exact='true'
+                        offset={-80}
+                    >
+                        About
+                    </SidebarLink>
+                    <SidebarLink 
+                        to='/signup' 
+                        onClick={toggle}
+                        smooth={true}
+                        duration={500}
+                        spy={true}
+                        exact='true'
+                        offset={-80}
+                    >
+                        Sign Up
+                    </SidebarLink>
                 </SidebarMenu>
                 <SideBtnWrap>
-                    <SidebarRoute to='signin'>Sign In</SidebarRoute>
+                    <SidebarRoute to='/signin'>Sign In</SidebarRoute>
                 </SideBtnWrap>
             </SidebarWrapper>
         </SidebarContainer>

@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
+import { FormButton } from './SignElements'
 
 const SignOut = () => {
     const [signedOut, setSignedOut] = useState(false)
@@ -13,11 +14,11 @@ const SignOut = () => {
         <Link to='/' push={true}/> 
     } else {
         return (
-            <button 
+            <FormButton
             onClick={(e) => clearUser()}
             >
                 Signout
-            </button>
+            </FormButton>
         )
     }
 }

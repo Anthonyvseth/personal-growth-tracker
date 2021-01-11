@@ -1,6 +1,19 @@
 import React, {useState} from 'react'
-import TextInput from './textInputs/TextInput'
-import {__RegisterUser} from '../services/UserServices'
+import TextInput from '../textInputs/TextInput'
+import {__RegisterUser} from '../../services/UserServices'
+import {
+    Container,
+    FormWrap,
+    Icon,
+    FormContent,
+    Form,
+    FormH1,
+    FormLabel,
+    FormInput,
+    FormButton,
+    Text
+    } from './SignUpElements'
+import {FaRegGrinWink} from 'react-icons/fa'
 
 const SignUp = (props) => {
     const [userName, setUserName] = useState('')
@@ -50,57 +63,56 @@ const SignUp = (props) => {
       }
     }   
     return (
-        <div>
-            <h1>Get started today!</h1>
-                <form onSubmit={(e) => handleSubmit(e)}>
-                    <div>
-                        <label>Username</label>
-                            <TextInput 
+        <Container>
+                <FormWrap onSubmit={(e) => handleSubmit(e)}>
+                    <Icon to="/"> 
+                        <FaRegGrinWink />
+                            Pgt
+                    </Icon>
+                    <FormContent>
+                    <Form>
+                    <FormH1>Create an account today!</FormH1>
+                        <FormLabel>Username</FormLabel>
+                            <FormInput 
                             type = 'text'
                             name = 'userName'
                             placeholder = 'Enter your username'
                             onChange={formChange}
                             />
-                    </div>
-                    <div>
-                        <label>First Name</label>
-                            <TextInput  
+                        <FormLabel>First Name</FormLabel>
+                            <FormInput
                             type = 'text'
                             name = 'firstName'
                             placeholder = 'Enter your fisrt name'
                             onChange={formChange}
                             />
-                    </div>
-                    <div>
-                        <label>Last Name</label>
-                            <TextInput 
+                        <FormLabel>Last Name</FormLabel>
+                            <FormInput
                             type = 'text'
                             name = 'lastName'
                             placeholder = 'Enter your last name'
                             onChange={formChange}
                             />
-                    </div>
-                    <div>
-                        <label>Email</label>
-                            <TextInput 
+
+                        <FormLabel>Email</FormLabel>
+                            <FormInput
                             type = 'text'
                             name = 'email'
                             placeholder = 'Enter your email'
                             onChange={formChange}
                             />
-                    </div>
-                    <div>
-                        <label>Password</label>
-                            <TextInput  
+                        <FormLabel>Password</FormLabel>
+                            <FormInput 
                             type = 'text'
                             name = 'password'
                             placeholder = 'Enter your password'
                             onChange={formChange}
                             />
-                    </div>
-                    <button >Sign Up</button>
-                </form>
-        </div>
+                    <FormButton>Sign Up</FormButton>
+                    </Form>
+                    </FormContent>
+                </FormWrap>
+        </Container>
     )
 }
 

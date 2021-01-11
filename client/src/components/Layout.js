@@ -11,8 +11,8 @@ const Layout = () => {
 
     return (
         <div>
-            <Navbar toggle={toggle}/>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
+            <Navbar toggle={toggle}/>
         </div>
     )
 }
