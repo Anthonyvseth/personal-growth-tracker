@@ -22,7 +22,7 @@ const AccomList = (props) => {
 
     if ( accomplishment !== null && accomplishment !== undefined && accomplishment.length > 0) {
     return (
-        <div>
+        <>
             {accomplishment.map((accomplishment, index) => {
                 return (
                     <Accomplishment
@@ -33,7 +33,7 @@ const AccomList = (props) => {
                 )
             })
             }
-        </div>
+        </>
     )
 } else {
     return null

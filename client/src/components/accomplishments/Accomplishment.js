@@ -3,6 +3,13 @@ import {__DeleteAffirm, __GetAccoms} from '../../services/AccomServices'
 import { FaPencilAlt, FaTrash } from "react-icons/fa";
 import AccomList from './AccomList';
 import AccomUpdate from './AccomUpdate';
+import { 
+    AccomCard,
+    AccomContainer,
+    AccomP,
+    AccomH2
+
+    } from './AccomElements';
 
 const Accomplishment = (props) => {
     // console.log("MAIN ACCOM props", props)
@@ -40,9 +47,10 @@ const Accomplishment = (props) => {
         }
     }
     return ( accomplishment ? (
-        <div>
-            <h3>{accomplishment.title}</h3>
-            <h4>{accomplishment.description}</h4>
+        <AccomContainer>
+            <AccomCard > 
+            <AccomH2>{accomplishment.title}</AccomH2>
+            <AccomP>{accomplishment.description}</AccomP>
             <h4>{accomplishment.rating}</h4>
             <button
                 onClick={(e) => deleteAccom(e)}>
@@ -53,11 +61,11 @@ const Accomplishment = (props) => {
                     show={show}
                     onHide={handleClose}
                 />
-                    
-                </button>
+            </button>
                 {show ? <AccomUpdate  accomplishment={accomplishment} /> :
                 null }
-            </div>
+                </AccomCard>
+            </AccomContainer>
     ) : (
         <h1>{null}</h1>
     )

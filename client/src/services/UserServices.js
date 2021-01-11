@@ -39,3 +39,13 @@ export const __SigninUser = async (userData) => {
 export const _LogOutUser = () => {
     localStorage.clear('user_id');
   };
+
+  export const __CheckSession = async () => {
+    try {
+        const res = await ApiClient.get('/users/refresh/session')
+        console.log(res.data)
+        return res.data
+    } catch (error) {
+        throw error
+    }
+}

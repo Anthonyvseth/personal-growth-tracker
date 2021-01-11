@@ -10,11 +10,6 @@ export const Container = styled.div`
   top: 0;
   z-index: 0;
   overflow: hidden;
-  background: linear-gradient(
-    108deg,
-    rgba(50, 135, 140, 1) 0%,
-    rgba(40, 155, 132, 1) 100%
-  );
 `;
 
 export const FormWrap = styled.div`
@@ -54,7 +49,7 @@ export const FormContent = styled.div`
 `;
 
 export const Form = styled.form`
-  background: #212121 ;
+  background: rgba(0, 0, 0, .7);
   max-width: 400px;
   height: auto;
   width: 100%;
@@ -105,4 +100,23 @@ export const Text = styled.span`
   margin-top: 24px;
   color: #fff;
   font-size: 14px;
+`;
+
+export const HeroBg = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+`;
+
+export const VideoBg = styled.video`
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  background: #232a34;
 `;

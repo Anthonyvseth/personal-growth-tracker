@@ -10,8 +10,10 @@ import {
     FormLabel,
     FormInput,
     FormButton,
-    Text
+    VideoBg,
+    HeroBg
     } from './SignElements'
+import Video from '../../videos/video.mp4';
 import {FaRegGrinWink} from 'react-icons/fa'
 
 
@@ -50,6 +52,9 @@ const SignIn = (props) => {
 
     return (
         <Container>
+            <HeroBg>
+                <VideoBg playsInline autoPlay loop muted src={Video} type='video/mp4' />
+            </HeroBg>
             <FormWrap onSubmit={(e) => handleSubmit(e)}>
                 <Icon to="/"> 
                     <FaRegGrinWink />

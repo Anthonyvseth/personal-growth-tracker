@@ -32,6 +32,7 @@ const NavBar = ({toggle}) => {
     const toggleHome = () => {
       scroll.scrollToTop();
     };
+    
     return(
         <IconContext.Provider value={{ color: '#fff' }}>
             <Nav scrollNav={scrollNav}>
@@ -46,7 +47,7 @@ const NavBar = ({toggle}) => {
                     <NavMenu>
                         <NavItem>
                             <NavLinks 
-                                to='profile'
+                                to="profile"
                                 smooth={true}
                                 duration={500}
                                 spy={true}
@@ -58,28 +59,28 @@ const NavBar = ({toggle}) => {
                         </NavItem>
                         <NavItem>
                             <NavLinks 
-                                to='/discover'
+                                to='accomplishments'
                                 smooth={true}
                                 duration={500}
                                 spy={true}
                                 exact='true'
                                 offset={-80}
                             >
-                                Discover
-                            </NavLinks>
-                        </NavItem>
-                        <NavItem>
-                            <NavLinks 
-                                to='/accomplishments'
-                                smooth={true}
-                                duration={500}
-                                spy={true}
-                                exact='true'
-                                offset={-80}
-                            >
-                                accomplishments
+                                Accomplishments
                                 </NavLinks>
                         </NavItem>
+                        <NavItem>
+                                <NavLinks
+                                to='signup'
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                exact='true'
+                                offset={-80}
+                                >
+                                Sign Up
+                                </NavLinks>
+                            </NavItem>
                         <NavBtn>
                             <NavBtnLink to='/signin'>Signin</NavBtnLink>
                         </NavBtn>

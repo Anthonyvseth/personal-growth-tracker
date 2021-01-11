@@ -1,22 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Affirmations from '../components/affirmation/Affirmations'
 import SignOut from '../components/signin/SignOut'
 import Accoms from '../components/accomplishments/Acomms'
-import Layout from '../components/Layout'
+import Sidebar from '../components/navbar/index'
+import Navbar from '../components/sidebar/index'
 
-const ProfilePage = (props, isOpen, toggle) => {
+const ProfilePage = (props) => {
     // console.log("profile page props",props)
     const {user} = props
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggle = () => {
+      setIsOpen(!isOpen);
+    };
+  
     if (user !== null && user !== undefined) {
         return (
             <div>
-                <Layout />
-                <h1>Profile</h1>
-                <div>
-                    <Accoms {...props} user={user} />
-                    <Affirmations {...props} user={user} />
-                    <SignOut {...props} />
-                </div>
+                <Sidebar isOpen={isOpen} toggle={toggle} />
+                <Navbar toggle={toggle} />
+                <Accoms {...props} user={user} />
+                {/* <Affirmations {...props} user={user} /> */}
+                {/* <SignOut {...props} /> */}
             </div>
         )
     }

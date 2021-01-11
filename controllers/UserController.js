@@ -152,6 +152,14 @@ const createAccomplishments = async (req, res) => {
     }
 }
 
+const RefreshSession = (req, res) => {
+    try {
+      const token = res.locals.token
+      res.send({ user: jwt.decode(token), token: res.locals.token })
+    } catch (error) {
+      throw error
+    }
+  }
 
 module.exports = {
     getAll,
@@ -162,5 +170,6 @@ module.exports = {
     signIn,
     createAffirmation,
     createGoal,
-    createAccomplishments
+    createAccomplishments,
+    RefreshSession
 }

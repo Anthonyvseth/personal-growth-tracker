@@ -37,9 +37,9 @@ const Router = () => {
     return (
         <main>
             <Switch>
-                <Route exact path='/' component={() => <HomePage />} />
+                <Route exact path='/' component={(props) => <HomePage {...props} setUser={setUser} user={user}/>} />
                 <Route path='/signin' component={(props) => <SignIn {...props} setUser={setUser} user={user}/>} />
-                <Route path='/signup' component={(props) => <SignUp {...props} setUser={setUser}/>}/>
+                <Route path='/signup' component={() => <SignUp />}/>
                 <ProtectedRoute 
                     authenticated={user !== null}
                     path='/accomplishments' 
