@@ -8,6 +8,7 @@ import Accoms from '../components/accomplishments/Acomms'
 import Affirmations from '../components/affirmation/Affirmations'
 import InfoSection from '../components/infoSection/index'
 import Goals from '../components/goals/Goals'
+import SignOut from '../components/signin/SignOut'
 
 const HomePage = (props) => {
     const {user} = props
@@ -26,6 +27,7 @@ const HomePage = (props) => {
             <Accoms {...props} user={user} />
             <Goals {...props} user={user} />
             <Affirmations {...props} user={user} />
+            {/* <SignOut/> */}
         </>
     )
 }
