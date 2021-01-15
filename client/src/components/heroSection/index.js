@@ -30,7 +30,7 @@ function HeroSection() {
         A place to track your growth and stay motivated during you daily life.
         Remind yourself to manifest your happiness with affirmations
         and create goals. Also a reminder for all your accomplishments 
-        A safe place for you to check in with you mental health
+        and what you have achieved.
         </HeroP>
         <HeroBtnWrapper>
           <Button

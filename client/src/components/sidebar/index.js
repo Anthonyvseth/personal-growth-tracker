@@ -31,17 +31,6 @@ const SideBar = ({isOpen, toggle}) => {
                         Home
                     </SidebarLink>
                     <SidebarLink 
-                        to='/profile' 
-                        onClick={toggle}
-                        smooth={true}
-                        duration={500}
-                        spy={true}
-                        exact='true'
-                        offset={-80}
-                    >
-                        Profile
-                    </SidebarLink>
-                    <SidebarLink 
                         to='/accomplishments' 
                         onClick={toggle}
                         smooth={true}

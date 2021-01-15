@@ -59,7 +59,7 @@ const SignUp = (props) => {
     try {
         const userResponse = await __RegisterUser(formState);
         props.setUser(userResponse)
-        props.history.push('/profile');
+        props.history.push('/');
       } catch (error) {
         throw error
       }
@@ -78,21 +78,21 @@ const SignUp = (props) => {
                     <Form>
                     <FormH1>Create an account today!</FormH1>
                         <FormLabel>Username</FormLabel>
-                            <FormInput 
+                            <TextInput 
                             type = 'text'
                             name = 'userName'
                             placeholder = 'Enter your username'
                             onChange={formChange}
                             />
                         <FormLabel>First Name</FormLabel>
-                            <FormInput
+                            <TextInput 
                             type = 'text'
                             name = 'firstName'
                             placeholder = 'Enter your fisrt name'
                             onChange={formChange}
                             />
                         <FormLabel>Last Name</FormLabel>
-                            <FormInput
+                            <TextInput 
                             type = 'text'
                             name = 'lastName'
                             placeholder = 'Enter your last name'
@@ -100,14 +100,14 @@ const SignUp = (props) => {
                             />
 
                         <FormLabel>Email</FormLabel>
-                            <FormInput
+                            <TextInput 
                             type = 'text'
                             name = 'email'
                             placeholder = 'Enter your email'
                             onChange={formChange}
                             />
                         <FormLabel>Password</FormLabel>
-                            <FormInput 
+                            <TextInput 
                             type = 'text'
                             name = 'password'
                             placeholder = 'Enter your password'

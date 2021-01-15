@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 
 export const GoalHeader = styled.div`
-  background: ${({ lightBg }) => (lightBg ? '#f9f9f9' : '#010606')};
+    background: linear-gradient(
+    180deg,
+    rgba(40, 155, 132, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+    );
+    padding: 10px 0;
 
   @media screen and (max-width: 768px) {
+    padding: 10px 0;
   }
 `;
 
@@ -13,7 +19,8 @@ export const GoalContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #010606;
+  background: transparent;
+  
 
   @media screen and (max-width: 768px) {
     height: 300px;
@@ -118,7 +125,6 @@ export const GoalInput = styled.input`
 `;
 
 export const Form = styled.form`
-  background: #010101;
   max-width: 400px;
   width: 100%;
   z-index: 1;
@@ -129,7 +135,7 @@ export const Form = styled.form`
   border-radius: 4px;
 
   @media screen and (max-width: 400px) {
-    padding: 10px 32px;
+    padding: 10px .1vw;
   }
 `;
 

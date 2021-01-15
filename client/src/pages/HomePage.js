@@ -27,7 +27,7 @@ const HomePage = (props) => {
             <Accoms {...props} user={user} />
             <Goals {...props} user={user} />
             <Affirmations {...props} user={user} />
-            {/* <SignOut/> */}
+            
         </>
     )
 }

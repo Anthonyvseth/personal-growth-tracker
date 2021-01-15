@@ -62,7 +62,7 @@ const Goal = (props) => {
             </GoalCard>
             </GoalContainer>
     ) : (
-        <h1>{null}</h1>
+        <GoalH2>what is this</GoalH2>
     )
     )
 }

@@ -39,11 +39,11 @@ const SignIn = (props) => {
         try {
             const userData = {email: loginValue, password: passwordValue}
             const loginResponse = await __SigninUser(userData)
-            console.log('Login Response: ', loginResponse === undefined);
+            console.log('Login Response: ', loginResponse !== undefined);
             if (loginResponse !== "") {
                 console.log("SIGNINLOGIN RES ", loginResponse)
                 setUser(loginResponse)
-                props.history.push('/profile');
+                props.history.push('/');
             }
         } catch (error) {
             throw error
