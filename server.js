@@ -11,9 +11,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'client', 'build')))
-app.get('*', (req, res) =>
-res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
-)
- app.use("/api", AppRouter);
+app.use("/api", AppRouter);
+app.get("*", (req, res) => {
+   res.sendFile(path.resolve("client", "build", "index.html"));
+   });
 
 app.listen(PORT, () => console.log(`Server working on Port: ${PORT}`));
