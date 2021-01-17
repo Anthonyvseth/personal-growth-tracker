@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import Affirmations from '../components/affirmation/Affirmations'
 import SignOut from '../components/signin/SignOut'
 import Accoms from '../components/accomplishments/Acomms'
 import Sidebar from '../components/navbar/index'
@@ -22,7 +21,6 @@ const ProfilePage = (props) => {
                 <Navbar toggle={toggle} />
                 <Accoms {...props} user={user} />
                 <Goals {...props} user={user} />
-                <Affirmations {...props} user={user} />
                 {/* <SignOut {...props} /> */}
             </div>
         )
