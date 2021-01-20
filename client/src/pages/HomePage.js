@@ -3,7 +3,7 @@ import Sidebar from '../components/navbar/index'
 import Navbar from '../components/sidebar/index'
 import HeroSection from '../components/heroSection'
 import Accoms from '../components/accomplishments/Acomms'
-import Affirms from '../components/affirmation/Affirms'
+// import Affirms from '../components/affirmation/Affirms'
 import Goals from '../components/goals/Goals'
 
 const HomePage = (props) => {
@@ -22,7 +22,7 @@ const HomePage = (props) => {
             {/* <InfoSection /> */}
             <Accoms {...props} user={user} />
             <Goals {...props} user={user} />
-            <Affirms {...props} user={user} />
+            {/* <Affirms {...props} user={user} /> */}
             
         </>
     )
