@@ -1,14 +1,10 @@
 import React, {useState} from 'react'
-import SignIn from '../components/signin/SignIn'
-import SignUp from '../components/signin/SignUp'
 import Sidebar from '../components/navbar/index'
 import Navbar from '../components/sidebar/index'
 import HeroSection from '../components/heroSection'
 import Accoms from '../components/accomplishments/Acomms'
-import Affirmations from '../components/affirmation/Affirmations'
-import InfoSection from '../components/infoSection/index'
+import Affirms from '../components/affirmation/Affirms'
 import Goals from '../components/goals/Goals'
-import SignOut from '../components/signin/SignOut'
 
 const HomePage = (props) => {
     const {user} = props
@@ -26,7 +22,7 @@ const HomePage = (props) => {
             {/* <InfoSection /> */}
             <Accoms {...props} user={user} />
             <Goals {...props} user={user} />
-            <Affirmations {...props} user={user} />
+            <Affirms {...props} user={user} />
             
         </>
     )

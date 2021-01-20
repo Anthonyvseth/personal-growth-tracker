@@ -5,7 +5,7 @@ import AffirmationList from './AffirmationList'
 import AffirmationUpdate from './AffirmationUpdate'
 import { AffirmHeader } from './AffirmElements'
 
-const Affirmations = (props) => {
+const Affirms = (props) => {
     const {user} = props
     // console.log("AFFFIRMMMSS user-props", user)
     const [show, setShow] = useState(true)
@@ -29,4 +29,4 @@ const Affirmations = (props) => {
     )
 }
 
-export default Affirmations
+export default Affirms

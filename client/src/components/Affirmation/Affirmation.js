@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { __CreateAffirm, __DeleteAffirm, __GetAffirms, __UpdateAffirm} from '../../services/AffirmationServices'
+import { __DeleteAffirm, __GetAffirms} from '../../services/AffirmationServices'
 import AffirmationUpdate from './AffirmationUpdate'
 import { FaPencilAlt, FaTrash } from "react-icons/fa";
 import {
