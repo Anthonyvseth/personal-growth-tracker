@@ -7,7 +7,7 @@ import {
 
 const AccomList = (props) => {
     // console.log("ACCOMLIST PROPS", props)
-    const {accomplishment} = props.user
+    const {accomplishment} = props
     console.log("ACOMLISTTTTTTT ", accomplishment) 
 
     if ( accomplishment !== null && accomplishment !== undefined && accomplishment.length > 0) {

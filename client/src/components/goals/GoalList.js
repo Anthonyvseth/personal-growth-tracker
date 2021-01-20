@@ -4,7 +4,7 @@ import {GoalWrapper} from './GoalElements'
 
 const GoalList = (props) => {
 
-    const {goal} = props.user
+    const {goal} = props
     console.log("GGGGGGGoals ", goal) 
 
     if (goal !== null && goal !== undefined && goal.length > 0) {
